@@ -1,0 +1,28 @@
+//- index.jade
+extends layout
+
+block content
+  header.hero
+    h1= title
+    p.subtitle Bem-vindo ao #{title} - Sua solução completa
+    a.cta-button(href="#features") Saiba Mais
+
+  section.features#features
+    .feature
+      h2 Design Moderno
+      p Nosso produto combina estética e funcionalidade para uma experiência excepcional.
+    .feature
+      h2 Performance
+      p Tecnologia de ponta para garantir velocidade e eficiência em todas as operações.
+    .feature
+      h2 Suporte 24/7
+      p Nossa equipe está sempre disponível para ajudar quando você precisar.
+
+  section.newsletter
+    h2 Mantenha-se Atualizado
+    form(action="/subscribe" method="POST")
+      input(type="email" name="email" placeholder="Seu melhor e-mail" required)
+      button(type="submit") Assinar
+
+  footer
+    p &copy; #{new Date().getFullYear()} #{title}. Todos os direitos reservados.

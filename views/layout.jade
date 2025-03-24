@@ -1,0 +1,17 @@
+//- layout.jade
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet")
+  body
+    nav
+      .container
+        a.logo(href="/")= title
+        ul.nav-links
+          li: a(href="/") Home
+          li: a(href="#features") Recursos
+          li: a(href="/contact") Contato
+    block content
