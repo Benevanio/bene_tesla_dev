@@ -1,17 +1,35 @@
-//- layout.jade
 doctype html
-html
+html(lang="pt-BR")
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    link(href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet")
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Benevanio - Engenheiro de Software
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css")
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap", rel="stylesheet")
   body
-    nav
+    header
       .container
-        a.logo(href="/")= title
-        ul.nav-links
-          li: a(href="/") Home
-          li: a(href="#features") Recursos
-          li: a(href="/contact") Contato
+        a.logo(href="#") bene_tesla_dev
+        nav
+          .hamburger
+            span
+            span
+            span
+          ul.nav-menu
+            li: a(href="#sobre") Sobre
+            li: a(href="#skills") Skills
+            li: a(href="#projetos") Projetos
+            li: a(href="#contato") Contato
     block content
+    footer
+      .container
+        .social-links
+          a(href="https://linkedin.com/in/bene-tesla", target="_blank"): i.fab.fa-linkedin
+          a(href="https://github.com/Benevanio", target="_blank"): i.fab.fa-github
+          a(href="https://twitter.com/BenevanioS", target="_blank"): i.fab.fa-twitter
+          a(href="https://instagram.com/bene_tesla_dev", target="_blank"): i.fab.fa-instagram
+        p &copy; #{new Date().getFullYear()} Benevanio. Todos os direitos reservados.
+    script(src="/javascripts/main.js")

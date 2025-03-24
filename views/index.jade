@@ -1,28 +1,213 @@
-//- index.jade
 extends layout
 
 block content
-  header.hero
-    h1= title
-    p.subtitle Bem-vindo ao #{title} - Sua solução completa
-    a.cta-button(href="#features") Saiba Mais
+  section.hero#home
+    .container
+      .hero-content
+        h1 Olá, eu sou 
+          span.highlight Benevanio
+        h2 Engenheiro de Software | Full Stack Developer
+        p Transformando ideias em soluções digitais robustas e escaláveis
+        .cta-buttons
+          a.button-primary(href="#contato") Vamos conversar
+          a.button-secondary(href="#projetos") Meus projetos
 
-  section.features#features
-    .feature
-      h2 Design Moderno
-      p Nosso produto combina estética e funcionalidade para uma experiência excepcional.
-    .feature
-      h2 Performance
-      p Tecnologia de ponta para garantir velocidade e eficiência em todas as operações.
-    .feature
-      h2 Suporte 24/7
-      p Nossa equipe está sempre disponível para ajudar quando você precisar.
+  section.about#sobre
+    .container
+      .section-title
+        h2 Sobre Mim
+        .divider
+      .about-content
+        .about-text
+          p Sou um Engenheiro de Software apaixonado por criar soluções tecnológicas inovadoras. Com experiência em diversas stacks, meu objetivo é desenvolver aplicações que realmente façam a diferença.
+          p Minha jornada inclui desde desenvolvimento back-end com Java e Node.js até criação de interfaces modernas com React e Flutter.
+          p Quando não estou codando, você me encontra assistindo Doctor Who, Star Wars ou algum anime clássico!
+        .about-skills
+          .skill-tag Java
+          .skill-tag Spring
+          .skill-tag Node.js
+          .skill-tag React
+          .skill-tag Flutter
+          .skill-tag MuleSoft
 
-  section.newsletter
-    h2 Mantenha-se Atualizado
-    form(action="/subscribe" method="POST")
-      input(type="email" name="email" placeholder="Seu melhor e-mail" required)
-      button(type="submit") Assinar
+  section.skills#skills
+    .container
+      .section-title
+        h2 Minhas Skills
+        .divider
+      .skills-grid
+        .skill-category
+          h3 Back-end
+          ul
+            li 
+              i.fas.fa-check
+              | Java & Spring
+            li 
+              i.fas.fa-check
+              | Node.js & Express
+            li 
+              i.fas.fa-check
+              | MuleSoft
+        .skill-category
+          h3 Front-end
+          ul
+            li 
+              i.fas.fa-check
+              | React
+            li 
+              i.fas.fa-check
+              | HTML/CSS/SASS
+            li 
+              i.fas.fa-check
+              | Bootstrap
+        .skill-category
+          h3 Mobile
+          ul
+            li 
+              i.fas.fa-check
+              | Flutter
+            li 
+              i.fas.fa-check
+              | React Native
+        .skill-category
+          h3 DevOps & Outros
+          ul
+            li 
+              i.fas.fa-check
+              | Docker
+            li 
+              i.fas.fa-check
+              | AWS
+            li 
+              i.fas.fa-check
+              | Git
 
-  footer
-    p &copy; #{new Date().getFullYear()} #{title}. Todos os direitos reservados.
+  section.projects#projetos
+    .container
+      .section-title
+        h2 Projetos Destacados
+        .divider
+      .projects-grid
+        .project-card
+          .project-info
+            h3 AuthKnex (Node.js + Knex)
+            p Sistema de autenticação com Node.js, Knex e JWT
+            a.project-link(href="https://github.com/Benevanio/AuthKnex", target="_blank")
+              | Ver no GitHub 
+              i.fab.fa-github
+
+        .project-card
+          .project-info
+            h3 Games API (Node + MongoDB)
+            p API de jogos com Node.js e MongoDB
+            a.project-link(href="https://github.com/Benevanio/games-api-mongo-node", target="_blank")
+              | Ver no GitHub 
+              i.fab.fa-github
+
+        .project-card
+          .project-info
+            h3 Social Media (Full Stack)
+            p Aplicação de rede social completa
+            a.project-link(href="https://github.com/Benevanio/socialmedia", target="_blank")
+              | Ver no GitHub 
+              i.fab.fa-github
+
+        .project-card
+          .project-info
+            h3 Post/Comment API
+            p API de posts e comentários
+            a.project-link(href="https://github.com/Benevanio/post-comment-example", target="_blank")
+              | Ver no GitHub 
+              i.fab.fa-github
+
+        .project-card
+          .project-info
+            h3 Axis Store (Flutter)
+            p Aplicativo e-commerce com Flutter
+            a.project-link(href="https://github.com/Benevanio/axisstore", target="_blank")
+              | Ver no GitHub 
+              i.fab.fa-github
+
+        .project-card
+          .project-info
+            h3 Frases App (Flutter)
+            p App de frases inspiradoras
+            a.project-link(href="https://github.com/Benevanio/frases", target="_blank")
+              | Ver no GitHub 
+              i.fab.fa-github
+
+        .project-card
+          .project-info
+            h3 API Specification (MuleSoft)
+            p Especificação de API com MuleSoft
+            a.project-link(href="https://github.com/Benevanio/api-specification", target="_blank")
+              | Ver no GitHub 
+              i.fab.fa-github
+
+        .project-card
+          .project-info
+            h3 API Core (MuleSoft)
+            p Núcleo de API com MuleSoft
+            a.project-link(href="https://github.com/Benevanio/api-core", target="_blank")
+              | Ver no GitHub 
+              i.fab.fa-github
+
+  section.contact#contato
+  .container
+    .section-title
+      h2 Contato
+      .divider
+    .contact-grid
+      .contact-card
+        .contact-icon
+          i.fab.fa-linkedin
+        h3 LinkedIn
+        p Conecte-se profissionalmente
+        a.contact-btn(href="https://linkedin.com/in/bene-tesla" target="_blank")
+          | Acessar 
+          i.fas.fa-arrow-right
+
+      .contact-card
+        .contact-icon
+          i.fab.fa-github
+        h3 GitHub
+        p Veja meus projetos
+        a.contact-btn(href="https://github.com/Benevanio" target="_blank")
+          | Acessar 
+          i.fas.fa-arrow-right
+
+      .contact-card
+        .contact-icon
+          i.fab.fa-twitter
+        h3 Twitter
+        p Me siga para updates
+        a.contact-btn(href="https://twitter.com/BenevanioS" target="_blank")
+          | Acessar 
+          i.fas.fa-arrow-right
+
+      .contact-card
+        .contact-icon
+          i.fab.fa-instagram
+        h3 Instagram
+        p Meu dia-a-dia dev
+        a.contact-btn(href="https://instagram.com/bene_tesla_dev" target="_blank")
+          | Acessar 
+          i.fas.fa-arrow-right
+
+      .contact-card
+        .contact-icon
+          i.fas.fa-envelope
+        h3 Email
+        p Me mande uma mensagem
+        a.contact-btn(href="mailto:benevaniosantos930@gmail.com")
+          | Enviar 
+          i.fas.fa-arrow-right
+
+      .contact-card
+        .contact-icon
+          i.fas.fa-comment-dots
+        h3 Mensagem Rápida
+        p Entre em contato agora
+        button.contact-btn(type="button" onclick="openContactForm()")
+          | Escrever 
+          i.fas.fa-arrow-right
