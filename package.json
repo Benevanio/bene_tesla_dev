@@ -5,22 +5,19 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "vercel-build": "npm install --omit=dev && npm uninstall pug --no-save && npm cache clean --force",
-    "vercel-dev": "npm install"
+    "preinstall": "node scripts/preinstall.js",
+   "vercel-build": "npm run preinstall && npm install --omit=dev"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
+    "jade": "1.11.0",
     "morgan": "~1.9.1"
   },
   "engines": {
-    "node": ">=14.x",
-    "npm": ">=6.x"
-  },
-  "resolutions": {
-    "uglify-js": "2.8.29"
+    "node": "14.x",
+    "npm": "6.x"
   }
 }
