@@ -9,33 +9,57 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-// view engine setup
+// Configuração do motor de visualização (Jade/Pug)
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 
+// Configuração para compatibilidade com Vercel
+try {
+  app.set('view engine', 'pug'); // Tenta usar Pug primeiro
+  console.log('Usando Pug como engine de template');
+} catch (e) {
+  app.set('view engine', 'jade'); // Fallback para Jade
+  console.log('Usando Jade como engine de template');
+}
+
+// Configuração de middleware
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/public', express.static(path.join(__dirname, 'public'), {
+  maxAge: '1y',
+  immutable: true
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
+  console.error(err.stack || err);
+  
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
+  res.locals.error = process.env.NODE_ENV === 'development' ? err : {};
+  
   res.status(err.status || 500);
-  res.render('error');
+  
+  try {
+    res.render('error');
+  } catch (e) {
+    res.send('<h1>Ocorreu um erro</h1><p>' + err.message + '</p>');
+  }
 });
 
-module.exports = app;
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  var PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+  });
+  module.exports = app;
+}
