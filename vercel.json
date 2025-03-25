@@ -6,15 +6,11 @@
       "use": "@vercel/node",
       "config": {
         "nodeVersion": "22.x",
-        "includeFiles": ["views/**", "public/**", "scripts/**"]
+        "includeFiles": ["views/**", "public/**"]
       }
     }
   ],
   "routes": [
-    {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
-    },
     {
       "src": "/(.*)",
       "dest": "app.js"

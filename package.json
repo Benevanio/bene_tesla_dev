@@ -5,8 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "preinstall": "node scripts/clean-deps.js || echo 'Continuing despite clean-deps error'",
-    "vercel-build": "npm install --omit=dev --legacy-peer-deps && npm cache clean --force"
+    "vercel-build": "npm install --omit=dev --legacy-peer-deps && npm install jade@1.11.0 --save-exact && rm -rf node_modules/transformers"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

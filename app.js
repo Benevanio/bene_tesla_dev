@@ -14,11 +14,17 @@ var app = express();
 try {
   app.engine('jade', require('jade').__express);
   app.set('view engine', 'jade');
-  console.log('Usando Jade como template engine');
-} catch (e) {
-  app.engine('jade', require('pug').__express);
-  app.set('view engine', 'jade');
-  console.log('Usando Pug como fallback para templates Jade');
+  console.log('Jade configurado com sucesso');
+} catch (err) {
+  console.error('Erro ao configurar Jade:', err);
+  try {
+    app.engine('jade', require('pug').__express);
+    app.set('view engine', 'jade');
+    console.log('Usando Pug como fallback para Jade');
+  } catch (fallbackErr) {
+    console.error('Erro no fallback Pug:', fallbackErr);
+    process.exit(1);
+  }
 }
 
 app.set('views', path.join(__dirname, 'views'));
@@ -33,24 +39,67 @@ app.use('/public', express.static(path.join(__dirname, 'public'), {
   immutable: true
 }));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/stylesheets', express.static(path.join(__dirname, 'public/stylesheets')));
+app.use('/javascripts', express.static(path.join(__dirname, 'public/javascripts')));
 
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use('/', (req, res, next) => {
+  try {
+    indexRouter(req, res, next);
+  } catch (err) {
+    console.error('Erro na rota principal:', err);
+    next(err);
+  }
+});
+
+app.use('/users', (req, res, next) => {
+  try {
+    usersRouter(req, res, next);
+  } catch (err) {
+    console.error('Erro na rota de usuários:', err);
+    next(err);
+  }
 });
 
 app.use(function(err, req, res, next) {
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-  
-  res.status(err.status || 500);
-  
-  try {
-    res.render('error');
-  } catch (e) {
-    console.error('Erro ao renderizar template:', e);
-    res.send('<h1>Erro</h1><pre>' + err.message + '</pre>');
+  console.error('Erro capturado:', {
+    message: err.message,
+    stack: err.stack,
+    status: err.status || 500
+  });
+
+  if (!res.headersSent) {
+    res.status(err.status || 500);
+    
+    try {
+      res.format({
+        html: () => {
+          try {
+            res.render('error', {
+              message: err.message,
+              error: process.env.NODE_ENV === 'development' ? err : {}
+            });
+          } catch (renderErr) {
+            res.send(`
+              <h1>Erro</h1>
+              <p>${err.message}</p>
+              ${process.env.NODE_ENV === 'development' ? `<pre>${err.stack}</pre>` : ''}
+            `);
+          }
+        },
+        json: () => {
+          res.json({
+            error: err.message,
+            ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+          });
+        },
+        default: () => {
+          res.type('txt').send(`Erro: ${err.message}`);
+        }
+      });
+    } catch (handlerErr) {
+      console.error('Falha no handler de erro:', handlerErr);
+      res.status(500).send('Erro interno do servidor');
+    }
   }
 });
 
