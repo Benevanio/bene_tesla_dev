@@ -6,7 +6,7 @@
       "use": "@vercel/node",
       "config": {
         "nodeVersion": "22.x",
-        "includeFiles": ["views/**", "public/**"]
+        "includeFiles": ["views/**", "public/**", "scripts/**"]
       }
     }
   ],
