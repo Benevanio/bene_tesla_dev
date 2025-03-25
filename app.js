@@ -12,15 +12,15 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 try {
-  app.engine('jade', require('jade').__express);
-  app.set('view engine', 'jade');
-  console.log('Jade configurado com sucesso');
+  app.engine('pug', require('pug').__express);
+  app.set('view engine', 'pug');
+  console.log('pug configurado com sucesso');
 } catch (err) {
-  console.error('Erro ao configurar Jade:', err);
+  console.error('Erro ao configurar pug:', err);
   try {
-    app.engine('jade', require('pug').__express);
-    app.set('view engine', 'jade');
-    console.log('Usando Pug como fallback para Jade');
+    app.engine('pug', require('pug').__express);
+    app.set('view engine', 'pug');
+    console.log('Usando Pug como fallback para pug');
   } catch (fallbackErr) {
     console.error('Erro no fallback Pug:', fallbackErr);
     process.exit(1);
