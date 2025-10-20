@@ -2,6 +2,21 @@
 
 ![Preview do Portfólio](https://github.com/user-attachments/assets/cb6c7950-30b5-4937-bd5b-fff273dc60fe)
 
+## 🆕 Últimas Atualizações
+
+### ✅ Recém Implementado:
+- **Botão de Download do Currículo**: Adicionado botão verde na seção hero para download direto do CV
+- **Seção de Formação Profissional**: Nova seção com timeline das formações e certificações
+- **WhatsApp Contact**: Adicionado botão de contato via WhatsApp (19) 99828-3835
+- **Pós-graduação Adicionada**: Incluída formação em Arquitetura de Software Distribuído (PUC Minas)
+- **Skills Expandidas**: Adicionadas tecnologias como Docker, Kubernetes, AWS, Azure e bancos de dados
+- **Navegação Atualizada**: Menu atualizado para incluir a nova seção de formação
+- **Design Responsivo**: Timeline de formação adaptável para dispositivos móveis
+
+### 📋 Formações Incluídas:
+- Pós-graduação em Arquitetura de Software Distribuído - PUC Minas (2025 - Atual)
+- Engenharia de Software - Faculdade Anhanguera (2021 - 2025)
+
 ## ✨ Sobre o Projeto
 Portfólio profissional desenvolvido para mostrar minha expertise como Engenheiro de Software Full Stack, destacando projetos reais, habilidades técnicas e formas de contato profissional.
 
@@ -46,6 +61,8 @@ npm start
 
 ## 🌟 Destaques
 - **Design Responsivo** - Adaptável a todos os dispositivos
+- **Download de Currículo** - Botão para download direto do CV
+- **Timeline Educacional** - Seção dedicada às formações profissionais
 - **SEO Otimizado** - Metatags e estrutura semântica
 - **Performance** - Carregamento rápido
 - **Projetos Reais** - Destaque de trabalhos profissionais

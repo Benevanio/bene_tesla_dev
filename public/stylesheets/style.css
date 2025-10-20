@@ -118,14 +118,18 @@ nav {
 .cta-buttons {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.button-primary, .button-secondary {
+.button-primary, .button-secondary, .button-download {
   padding: 0.8rem 1.5rem;
   border-radius: 5px;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .button-primary {
@@ -145,6 +149,18 @@ nav {
 
 .button-secondary:hover {
   background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.button-download {
+  background-color: #10b981;
+  color: var(--white);
+  border: 2px solid #10b981;
+}
+
+.button-download:hover {
+  background-color: #059669;
+  border-color: #059669;
   transform: translateY(-3px);
 }
 
@@ -198,6 +214,138 @@ nav {
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: 500;
+}
+
+/* Education Section */
+.education {
+  padding: 5rem 0;
+  background-color: #f8fafc;
+}
+
+.education-timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--light-blue), var(--primary-blue));
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.education-item {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 4rem;
+  position: relative;
+  min-height: 120px;
+}
+
+.education-item:last-child {
+  margin-bottom: 0;
+}
+
+.education-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.education-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.education-year {
+  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+  color: var(--white);
+  padding: 0.7rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  z-index: 3;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+  border: 3px solid var(--white);
+}
+
+.education-content {
+  background-color: var(--white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  width: 42%;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.education-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.education-item:nth-child(odd) .education-content {
+  margin-right: 8%;
+  margin-left: 0;
+}
+
+.education-item:nth-child(even) .education-content {
+  margin-left: 8%;
+  margin-right: 0;
+}
+
+.education-item:nth-child(odd) .education-content::before {
+  content: '';
+  position: absolute;
+  right: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid var(--white);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+.education-item:nth-child(even) .education-content::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-right: 12px solid var(--white);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+.education-content h3 {
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-content h4 {
+  color: var(--secondary-blue);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.education-content p {
+  color: var(--gray);
+  line-height: 1.6;
 }
 
 /* Skills Section */
@@ -357,6 +505,48 @@ footer {
   .about-content {
     flex-direction: column;
   }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .education-timeline {
+    padding: 1rem 0;
+  }
+
+  .education-timeline::before {
+    left: 30px;
+    width: 2px;
+  }
+
+  .education-item {
+    flex-direction: column !important;
+    align-items: flex-start;
+    padding-left: 60px;
+    margin-bottom: 2.5rem;
+    min-height: auto;
+  }
+
+  .education-year {
+    position: relative;
+    left: -60px;
+    top: auto;
+    transform: none;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .education-content {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 1.5rem;
+  }
+
+  .education-content::before {
+    display: none;
+  }
 }
 
 /* Animation for hamburger menu */
@@ -446,6 +636,20 @@ footer {
   background-color: var(--dark-blue);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
+}
+
+/* WhatsApp specific styling */
+.contact-card:has(.fa-whatsapp) .contact-icon {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+}
+
+.contact-card:has(.fa-whatsapp) .contact-btn {
+  background-color: #25d366;
+}
+
+.contact-card:has(.fa-whatsapp) .contact-btn:hover {
+  background-color: #128c7e;
+  box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
 }
 
 /* Modal de Contato (opcional) */

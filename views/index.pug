@@ -5,12 +5,15 @@ block content
     .container
       .hero-content
         h1 Olá, eu sou 
-          span.highlight Benevanio
-        h2 Engenheiro de Software | Full Stack Developer
+          span.highlight Benevanio Santos
+        h2 Engenheiro de Software | Arquiteto  de Software (Em Formação) | Desenvolvedor Full Stack  
         p Transformando ideias em soluções digitais robustas e escaláveis
         .cta-buttons
           a.button-primary(href="#contato") Vamos conversar
           a.button-secondary(href="#projetos") Meus projetos
+          a.button-download(href="/BenevanioSantos_Curriculo_ATS.docx", download="Benevanio_Santos_Curriculo.docx")
+            i.fas.fa-download
+            | Download CV
 
   section.about#sobre
     .container
@@ -19,16 +22,39 @@ block content
         .divider
       .about-content
         .about-text
-          p Sou um Engenheiro de Software apaixonado por criar soluções tecnológicas inovadoras. Com experiência em diversas stacks, meu objetivo é desenvolver aplicações que realmente façam a diferença.
-          p Minha jornada inclui desde desenvolvimento back-end com Java e Node.js até criação de interfaces modernas com React e Flutter.
-          p Quando não estou codando, você me encontra assistindo Doctor Who, Star Wars ou algum anime clássico!
+          p Sou Engenheiro de Software e Desenvolvedor Full Stack, apaixonado por tecnologia, inovação e soluções distribuídas. Atualmente curso Pós-graduação em Arquitetura de Software Distribuído (PUC Minas), onde aprofundo meus conhecimentos em microsserviços, computação em nuvem e DevOps.
+          p Tenho experiência com Spring Boot, Node.js, React e MuleSoft, atuando no desenvolvimento de aplicações web, integração de APIs e automação de processos corporativos.
+          p Sou movido por desafios, aprendizado contínuo e pela busca de arquiteturas escaláveis e bem projetadas. Quando não estou codando, você me encontra assistindo Doctor Who, Star Wars ou algum anime clássico!
         .about-skills
           .skill-tag Java
           .skill-tag Spring
           .skill-tag Node.js
           .skill-tag React
-          .skill-tag Flutter
           .skill-tag MuleSoft
+          .skill-tag Docker
+          .skill-tag Kubernetes
+          .skill-tag AWS
+          .skill-tag Azure
+
+  section.education#formacao
+    .container
+      .section-title
+        h2 Formação Profissional
+        .divider
+      .education-timeline
+        .education-item
+          .education-year 2025 - Atual
+          .education-content
+            h3 Pós-graduação em Arquitetura de Software Distribuído
+            h4 PUC Minas
+            p Aprofundamento em microsserviços, computação em nuvem, DevOps e arquiteturas escaláveis para sistemas distribuídos.
+        
+        .education-item
+          .education-year 2021 - 2025
+          .education-content
+            h3 Engenharia de Software
+            h4 Faculdade Anhanguera
+            p Graduação focada em desenvolvimento de software, análise de sistemas e gestão de projetos tecnológicos.
 
   section.skills#skills
     .container
@@ -61,23 +87,32 @@ block content
               i.fas.fa-check
               | Bootstrap
         .skill-category
-          h3 Mobile
+          h3 Banco de Dados
           ul
             li 
               i.fas.fa-check
-              | Flutter
+              | MySQL
             li 
               i.fas.fa-check
-              | React Native
+              | PostgreSQL
+            li 
+              i.fas.fa-check
+              | MongoDB
         .skill-category
-          h3 DevOps & Outros
+          h3 DevOps & Cloud
           ul
             li 
               i.fas.fa-check
               | Docker
             li 
               i.fas.fa-check
+              | Kubernetes
+            li 
+              i.fas.fa-check
               | AWS
+            li 
+              i.fas.fa-check
+              | Azure
             li 
               i.fas.fa-check
               | Git
@@ -117,22 +152,6 @@ block content
             h3 Post/Comment API
             p API de posts e comentários
             a.project-link(href="https://github.com/Benevanio/post-comment-example", target="_blank")
-              | Ver no GitHub 
-              i.fab.fa-github
-
-        .project-card
-          .project-info
-            h3 Axis Store (Flutter)
-            p Aplicativo e-commerce com Flutter
-            a.project-link(href="https://github.com/Benevanio/axisstore", target="_blank")
-              | Ver no GitHub 
-              i.fab.fa-github
-
-        .project-card
-          .project-info
-            h3 Frases App (Flutter)
-            p App de frases inspiradoras
-            a.project-link(href="https://github.com/Benevanio/frases", target="_blank")
               | Ver no GitHub 
               i.fab.fa-github
 
@@ -201,4 +220,13 @@ block content
         p Me mande uma mensagem
         a.contact-btn(href="mailto:benevaniosantos930@gmail.com")
           | Enviar 
+          i.fas.fa-arrow-right
+
+      .contact-card
+        .contact-icon
+          i.fab.fa-whatsapp
+        h3 WhatsApp
+        p Vamos conversar
+        a.contact-btn(href="https://wa.me/5519998283835" target="_blank")
+          | Chamar 
           i.fas.fa-arrow-right
