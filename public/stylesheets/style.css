@@ -348,6 +348,49 @@ nav {
   line-height: 1.6;
 }
 
+/* Experience Section */
+.experience {
+  padding: 5rem 0;
+  background-color: var(--white);
+}
+
+.experience .education-content .experience-location {
+  display: flex;
+  align-items: center;
+  color: var(--gray);
+  margin: 1rem 0;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.experience .education-content .experience-location i {
+  margin-right: 0.5rem;
+  color: var(--primary-blue);
+}
+
+.experience .education-content h5 {
+  color: var(--primary-blue);
+  font-size: 1rem;
+  margin: 1.5rem 0 0.8rem 0;
+  font-weight: 600;
+}
+
+.experience .education-content strong {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.experience .education-content ul {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+.experience .education-content li {
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
 /* Skills Section */
 .skills {
   padding: 5rem 0;
