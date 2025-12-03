@@ -11,9 +11,41 @@ block content
         .cta-buttons
           a.button-primary(href="#contato") Vamos conversar
           a.button-secondary(href="#projetos") Meus projetos
-          a.button-download(href="/BenevanioSantos_Curriculo_ATS.docx", download="Benevanio_Santos_Curriculo.docx")
+          a.button-download#open-cv-modal(href="#")
             i.fas.fa-download
             | Download CV
+
+  // Modal de Download de Currículo
+  #cv-modal.cv-modal
+    .cv-modal-content
+      .cv-modal-header
+        h2
+          i.fas.fa-file-download
+          | Baixar Currículo
+        span.close-modal#close-cv-modal &times;
+      .cv-modal-body
+        p Escolha o idioma do seu currículo:
+        .cv-options
+          .cv-option
+            .cv-card
+              .cv-icon
+                i.fas.fa-flag
+                img(src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 42'%3E%3Cpath fill='%23009b3a' d='M0 0h60v42H0z'/%3E%3Cpath fill='%23fedf00' d='M30 3.5L54 21 30 38.5 6 21z'/%3E%3Ccircle cx='30' cy='21' r='7' fill='%23012169'/%3E%3C/svg%3E" alt="PT-BR" style="width: 40px; height: 28px;")
+              h3 Português (BR)
+              p Currículo em Português Brasileiro
+              a.cv-download-btn(href="/Curriculo%20Benevanio/BR.pdf" download="Benevanio_Santos_Curriculo_PT.pdf")
+                i.fas.fa-download
+                | Baixar PDF
+          .cv-option
+            .cv-card
+              .cv-icon
+                i.fas.fa-flag
+                img(src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect fill='%23b22234' width='60' height='40'/%3E%3Cpath d='M0 4.6h60M0 9.2h60M0 13.8h60M0 18.5h60M0 23.1h60M0 27.7h60M0 32.3h60M0 36.9h60' stroke='%23fff' stroke-width='3.1'/%3E%3Crect fill='%233c3b6e' width='24' height='17.1'/%3E%3C/svg%3E" alt="EN-US" style="width: 40px; height: 27px;")
+              h3 English (US)
+              p Resume in American English
+              a.cv-download-btn(href="/Curriculo%20Benevanio/Curriculo%20Benevanio%20English.pdf" download="Benevanio_Santos_Resume_EN.pdf")
+                i.fas.fa-download
+                | Download PDF
 
   section.about#sobre
     .container

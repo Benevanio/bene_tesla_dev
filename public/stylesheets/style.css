@@ -511,7 +511,7 @@ footer {
   color: var(--light-blue);
 }
 
-/* Responsive Design */
+/* Responsivo */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -590,6 +590,19 @@ footer {
   .education-content::before {
     display: none;
   }
+
+  .cv-options {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cv-skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cv-modal-content {
+    width: 95% !important;
+    padding: 1.5rem !important;
+  }
 }
 
 /* Animation for hamburger menu */
@@ -603,6 +616,407 @@ footer {
 
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Modal de Download de Currículo */
+.cv-modal {
+  display: none !important;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.cv-modal.show {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv-modal-content {
+  background-color: var(--white);
+  margin: auto;
+  padding: 2.5rem;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.3s ease;
+  position: relative;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cv-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--light-blue);
+  padding-bottom: 1rem;
+}
+
+.cv-modal-header h2 {
+  color: var(--primary-blue);
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0;
+}
+
+.close-modal {
+  color: var(--gray);
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: var(--primary-blue);
+}
+
+.cv-modal-body {
+  padding: 1rem 0;
+}
+
+.cv-modal-body > p {
+  font-size: 1.1rem;
+  color: var(--dark);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cv-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.cv-option {
+  display: flex;
+}
+
+.cv-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: 2px solid var(--light-blue);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cv-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+  border-color: var(--secondary-blue);
+}
+
+.cv-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  color: white;
+  border-radius: 50%;
+  font-size: 2rem;
+  position: relative;
+}
+
+.cv-icon img {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  border: 2px solid white;
+  border-radius: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cv-card h3 {
+  color: var(--primary-blue);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.cv-card p {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+}
+
+.cv-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+  background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+}
+
+/* Seção de Currículo */
+.curriculum {
+  padding: 5rem 0;
+  background-color: var(--white);
+}
+
+.curriculum-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.tab-btn {
+  padding: 0.8rem 2rem;
+  border: 2px solid var(--light-blue);
+  background-color: transparent;
+  color: var(--primary-blue);
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  background-color: var(--light-blue);
+  transform: translateY(-2px);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+  color: white;
+  border-color: var(--primary-blue);
+}
+
+.curriculum-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.curriculum-content.active {
+  display: block;
+}
+
+.cv-header {
+  background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+  color: white;
+  padding: 3rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 20px rgba(30, 64, 175, 0.2);
+}
+
+.cv-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cv-header h2 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: var(--light-blue);
+}
+
+.cv-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.cv-contact span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cv-contact a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.cv-contact a:hover {
+  color: var(--light-blue);
+}
+
+.cv-section {
+  background-color: var(--white);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid var(--primary-blue);
+}
+
+.cv-section h3 {
+  color: var(--primary-blue);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.cv-section h3 i {
+  font-size: 1.3rem;
+}
+
+.cv-section > p {
+  color: var(--dark);
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.cv-item {
+  margin-bottom: 2rem;
+}
+
+.cv-item:last-child {
+  margin-bottom: 0;
+}
+
+.cv-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cv-item h4 {
+  color: var(--primary-blue);
+  font-size: 1.2rem;
+}
+
+.cv-date {
+  background-color: var(--light-blue);
+  color: var(--primary-blue);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.cv-item h5 {
+  color: var(--secondary-blue);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.cv-location {
+  color: var(--gray);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cv-item ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.cv-item ul li {
+  color: var(--dark);
+  margin-bottom: 0.7rem;
+  padding-left: 1.5rem;
+  position: relative;
+  line-height: 1.6;
+}
+
+.cv-item ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--primary-blue);
+  font-weight: bold;
+}
+
+.cv-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.cv-skill-group h4 {
+  color: var(--primary-blue);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.cv-skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.cv-skill-tag {
+  background: linear-gradient(135deg, var(--light-blue), #bfdbfe);
+  color: var(--primary-blue);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  border: 1px solid var(--secondary-blue);
+}
+
+.cv-skill-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(59, 130, 246, 0.3);
 }
 
 /* Seção de Contato Melhorada */
