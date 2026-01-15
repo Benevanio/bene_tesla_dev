@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  section.hero#home
+  section.hero.section.section-primary#home
     .container
       .hero-content
         h1 Olá, eu sou 
@@ -9,9 +9,8 @@ block content
         h2 Engenheiro de Software | Arquiteto de Software (Em Formação) | Desenvolvedor Full Stack  
         p Transformando sistemas corporativos com APIs de alta performance e arquitetura distribuída
         .cta-buttons
-          a.button-primary(href="#contato") Vamos conversar
-          a.button-secondary(href="#experiencia") Experiência
-          a.button-download#open-cv-modal(href="#")
+          a.btn.btn-primary(href="#contato") Vamos conversa
+          a.btn.btn-success#open-cv-modal(href="#")
             i.fas.fa-download
             | Currículos
 
@@ -37,7 +36,7 @@ block content
                 a.cv-download-btn(href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing#Benevanio_CV_Java_Backend_PT.pdf" download)
                   i.fas.fa-flag-brazil
                   | PT-BR
-                a.cv-download-btn(href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing#Benevanio_CV_Java_Backend_EN.pdf" download)
+                a.cv-download-btn(href="https://drive.google.com/file/d/1HN0lCBnDpoJmgKJ6I6HqmOy7IuTXMAKR/view?usp=sharing" download)
                   i.fas.fa-flag-usa
                   | EN-US
           
@@ -90,11 +89,12 @@ block content
           i.fas.fa-info-circle
           | Todos os currículos otimizados para ATS (Greenhouse, Workday, Lever)
 
-  section.about#sobre
+  section.about.section.section-light#sobre
     .container
       .section-title
         h2 Sobre Mim
         .divider
+        p Conheça minha trajetória e expertise técnica
       .about-content
         .about-text
           p Sou <strong>Engenheiro de Software e Desenvolvedor Full Stack</strong>, com formação sólida e atuação em <strong>sistemas corporativos de grande escala</strong>. Atualmente curso <strong>Pós-graduação em Arquitetura de Software Distribuído (PUC Minas)</strong>, especializando-me em microsserviços, APIs de alta performance e observabilidade.
@@ -125,85 +125,199 @@ block content
             .stat-number 99.9%
             .stat-label Disponibilidade
 
-  section.education#formacao
+  // Tree of Life Section - Experiência & Formação
+  section.tree-section#formacao
     .container
       .section-title
-        h2 Formação Profissional
+        h2 🌳 Minha Árvore da Vida
         .divider
-      .education-timeline
-        .education-item
-          .education-year 2025 - 2027
-          .education-content
-            h3 Pós-graduação em Arquitetura de Software Distribuído
-            h4 PUC Minas
-            p Especialização em microsserviços, computação em nuvem, DevOps, observabilidade e arquiteturas escaláveis para sistemas distribuídos de grande escala.
+        p.tree-subtitle Uma jornada de crescimento técnico e profissional
+      
+      .tree-container
+        // Raízes
+        .tree-roots
+          .root-item
+            i.fas.fa-graduation-cap
+            span.root-text Raízes do Aprendizado
         
-        .education-item
-          .education-year 2021 - 2025
-          .education-content
+    
+        
+        .tree-branch.branch-left.branch-education
+          .branch-content
+            .branch-year 2021 - 2025
+            .branch-icon
+              i.fas.fa-graduation-cap
             h3 Bacharelado em Engenharia de Software
             h4 Anhanguera Educacional
-            p Graduação focada em desenvolvimento de software, análise de sistemas, gestão de projetos tecnológicos e qualidade de software.
-
-  section.experience#experiencia
-    .container
-      .section-title
-        h2 Experiência Profissional
-        .divider
-      .experience-timeline
-        .experience-item
-          .experience-year jun 2023 - Atual
-          .experience-content
+            
+            .experience-phases
+              .phase
+                .phase-label
+                  i.fas.fa-code
+                  | Desenvolvimento de Software
+                .phase-content
+                  p Análise e projeto de sistemas
+                  p Desenvolvimento aplicado
+              
+              .phase
+                .phase-label
+                  i.fas.fa-project-diagram
+                  | Gestão de Projetos
+                .phase-content
+                  p Metodologias ágeis (Scrum)
+                  p Qualidade de software
+              
+              .phase
+                .phase-label
+                  i.fas.fa-cogs
+                  | Tecnologias & Arquitetura
+                .phase-content
+                  p Padrões de design e SOLID
+                  p Estruturas de dados e algoritmos
+            
+          
+        
+        // Galho central - Experiência Principal
+        .tree-branch.branch-center.branch-main-exp
+          .branch-content
+            .branch-year jun 2023 - Atual
+            .branch-icon
+              i.fas.fa-code
             h3 Desenvolvedor Back-End & Integrações
             h4 SysMap Solutions (Terceirizado Natura)
             .experience-location
               i.fas.fa-map-marker-alt
               | São Paulo, Brasil · Remota
             
-            .experience-tags
-              span.tag MuleSoft 4.x
-              span.tag Java 6/7
-              span.tag Node.js 22
-              span.tag React.js
-              span.tag Oracle
-              span.tag MySQL
+            .experience-phases
+              .phase
+                .phase-label
+                  i.fas.fa-link
+                  | Integrações & API-Led
+                .phase-content
+                  p <strong>+40% rastreabilidade</strong> | <strong>+25% performance</strong>
+                  p MuleSoft 4.x, Kibana, OAuth/TLS
+              
+              .phase
+                .phase-label
+                  i.fas.fa-database
+                  | Full Stack & Dados
+                .phase-content
+                  p <strong>-30% tempo resposta</strong>
+                  p React.js, Node.js, MySQL, Oracle
+              
+              .phase
+                .phase-label
+                  i.fas.fa-chart-line
+                  | Performance & Escalabilidade
+                .phase-content
+                  p Docker, AWS, Squad Ágil
+                  p Global Sales Platform (GSP-JCB)
             
-            .experience-phase
-              h5
-                i.fas.fa-link
-                | Integrações & API-Led (MuleSoft)
-              p Atuação no núcleo de integrações corporativas, desenvolvendo e sustentando APIs críticas com arquitetura API-Led Connectivity. Implementação de logging estruturado e dashboards de monitoramento com Kibana.
-              ul
-                li <strong>+40% rastreabilidade</strong> através de logging estruturado
-                li <strong>+25% performance</strong> em fluxos críticos via otimizações
-                li Configuração de políticas de segurança (OAuth, TLS) e throttling
-                li Monitoramento proativo com Kibana e métricas de desempenho
+        
+        // Segundo galho - Pós-graduação
+        .tree-branch.branch-right.branch-postgrad
+          .branch-content
+            .branch-year 2025 - 2027
+            .branch-icon
+              i.fas.fa-university
+            h3 Pós-graduação em Arquitetura de Software
+            h4 PUC Minas
             
-            .experience-phase
-              h5
-                i.fas.fa-database
-                | Full Stack & Dados (GPP)
-              p Desenvolvimento de funcionalidades críticas para cadastro de consultoras, trabalhando de ponta a ponta com React.js (front-end), Node.js/TypeScript (back-end) e bancos relacionais (MySQL, Oracle).
-              ul
-                li <strong>-30% tempo de resposta</strong> em consultas otimizadas
-                li Implementação de testes automatizados e práticas de CI/CD
-                li Integração com sistemas legados e APIs corporativas
+            .experience-phases
+              .phase
+                .phase-label
+                  i.fas.fa-cube
+                  | Microsserviços & Distribuído
+                .phase-content
+                  p Arquiteturas de larga escala
+                  p Padrões distribuídos
+              
+              .phase
+                .phase-label
+                  i.fas.fa-cloud
+                  | DevOps & Cloud
+                .phase-content
+                  p Containerização e orquestração
+                  p Infraestrutura como código
+              
+              .phase
+                .phase-label
+                  i.fas.fa-binoculars
+                  | Observabilidade & Performance
+                .phase-content
+                  p Monitoramento distribuído
+                  p Otimização de sistemas
             
-            .experience-phase
-              h5
-                i.fas.fa-chart-line
-                | Performance & Escalabilidade (GSP - JCB)
-              p Atuação na Global Sales Platform (GSP), focando em otimizações de performance, escalabilidade e estabilidade nos fluxos de alta volumetria da JCB.
-              ul
-                li Containerização com Docker e deploy em ambiente AWS
-               li Otimização de fluxos de venda para alta disponibilidade
-                li Trabalho em squad ágil com foco em métricas de negócio
+        
+        // Folhas de skills (espalhadas na árvore)
+        .tree-leaves
+          .leaf.leaf-1
+            span Java
+          .leaf.leaf-2
+            span Node.js
+          .leaf.leaf-3
+            span React
+          .leaf.leaf-4
+            span MuleSoft
+          .leaf.leaf-5
+            span TypeScript
+          .leaf.leaf-6
+            span Docker
+          .leaf.leaf-7
+            span AWS
+          .leaf.leaf-8
+            span Spring Boot
+        
+        // Passarinhos (elementos decorativos nerd)
+        .decorative-elements
+          .tech-bird
+            i.fas.fa-code
+            span Dev
+          .tech-bird
+            i.fab.fa-github
+            span Open Source
+          .tech-bird
+            i.fas.fa-rocket
+            span Innovation
 
-  section.skills#skills
+  // Seção de Origem - Porto da Folha, Sergipe
+  section.origin-section#origem
+    .container
+      .section-title
+        h2 🌱 Raízes do Interior
+        .divider
+        p.origin-subtitle Um curioso do interior que conquistou o Brasil
+      
+      .origin-content
+        .origin-card
+          .origin-icon
+            i.fas.fa-map-pin
+          .origin-text
+            h3 Porto da Folha, Sergipe
+            p.origin-location 📍 Interior do estado de Sergipe
+            p Originário de uma pequena cidade do sertão sergipano, cresci em um ambiente que me ensinou a ser criativo com recursos limitados. Porto da Folha moldou meu pensamento sistêmico e minha capacidade de resolver problemas de forma inovadora.
+            .origin-stats
+              .origin-stat
+                .stat-icon
+                  i.fas.fa-heart
+                span Humildade
+              .origin-stat
+                .stat-icon
+                  i.fas.fa-lightbulb
+                span Criatividade
+              .origin-stat
+                .stat-icon
+                  i.fas.fa-mountain
+                span Perseverança
+        
+
+  section.skills.section.section-light#skills
     .container
       .section-title
         h2 Stack Técnica
         .divider
+        p Tecnologias e ferramentas que domino
       .skills-grid
         .skill-category
           h3
@@ -307,11 +421,12 @@ block content
               i.fas.fa-check
               | Inglês (Leitura Técnica)
 
-  section.projects#projetos
+  section.projects.section#projetos
     .container
       .section-title
         h2 Projetos Técnicos
         .divider
+        p Alguns dos meus trabalhos mais relevantes
       .projects-grid
         .project-card
           .project-badge Back-End
@@ -397,11 +512,12 @@ block content
               i.fab.fa-github
               | Ver no GitHub
 
-  section.contact#contato
+  section.contact.section.section-light#contato
     .container
       .section-title
         h2 Contato
         .divider
+        p Vamos conversar sobre oportunidades e projetos
       .contact-grid
         .contact-card
           .contact-icon
@@ -443,22 +559,13 @@ block content
             | Iniciar Conversa
             i.fas.fa-arrow-right
 
-        .contact-card
-          .contact-icon
-            i.fas.fa-file-pdf
-          h3 Currículos
-          p Download especializado
-          p.small 8 versões ATS-otimizadas
-          a.contact-btn#open-cv-modal-2(href="#")
-            | Ver Currículos
-            i.fas.fa-download
-
+       
         .contact-card
           .contact-icon
             i.fas.fa-globe
           h3 Portfolio
           p Esta página
-          p.shard.small-text Atualizado Nov/2024
+          p.small Atualizado Jan/2026
           a.contact-btn(href="https://bene-tesla-dev.vercel.app" target="_blank")
             | Acessar Site
             i.fas.fa-external-link-alt
