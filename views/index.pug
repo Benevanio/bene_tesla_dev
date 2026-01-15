@@ -6,14 +6,14 @@ block content
       .hero-content
         h1 Olá, eu sou 
           span.highlight Benevanio Santos
-        h2 Engenheiro de Software | Arquiteto  de Software (Em Formação) | Desenvolvedor Full Stack  
-        p Transformando ideias em soluções digitais robustas e escaláveis
+        h2 Engenheiro de Software | Arquiteto de Software (Em Formação) | Desenvolvedor Full Stack  
+        p Transformando sistemas corporativos com APIs de alta performance e arquitetura distribuída
         .cta-buttons
           a.button-primary(href="#contato") Vamos conversar
-          a.button-secondary(href="#projetos") Meus projetos
+          a.button-secondary(href="#experiencia") Experiência
           a.button-download#open-cv-modal(href="#")
             i.fas.fa-download
-            | Download CV
+            | Currículos
 
   // Modal de Download de Currículo
   #cv-modal.cv-modal
@@ -24,28 +24,71 @@ block content
           | Baixar Currículo
         span.close-modal#close-cv-modal &times;
       .cv-modal-body
-        p Escolha o idioma do seu currículo:
+        p Escolha a especialização e idioma:
         .cv-options
           .cv-option
             .cv-card
               .cv-icon
-                i.fas.fa-flag
-                img(src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 42'%3E%3Cpath fill='%23009b3a' d='M0 0h60v42H0z'/%3E%3Cpath fill='%23fedf00' d='M30 3.5L54 21 30 38.5 6 21z'/%3E%3Ccircle cx='30' cy='21' r='7' fill='%23012169'/%3E%3C/svg%3E" alt="PT-BR" style="width: 40px; height: 28px;")
-              h3 Português (BR)
-              p Currículo em Português Brasileiro
-              a.cv-download-btn(href="/Curriculo%20Benevanio/BR.pdf" download="Benevanio_Santos_Curriculo_PT.pdf")
-                i.fas.fa-download
-                | Baixar PDF
+                i.fas.fa-code
+                i.fas.fa-server(style="margin-left: 5px;")
+              h3 Back-End Java
+              p Java Spring Boot & Arquitetura
+              .cv-lang
+                a.cv-download-btn(href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing#Benevanio_CV_Java_Backend_PT.pdf" download)
+                  i.fas.fa-flag-brazil
+                  | PT-BR
+                a.cv-download-btn(href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing#Benevanio_CV_Java_Backend_EN.pdf" download)
+                  i.fas.fa-flag-usa
+                  | EN-US
+          
           .cv-option
             .cv-card
               .cv-icon
-                i.fas.fa-flag
-                img(src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect fill='%23b22234' width='60' height='40'/%3E%3Cpath d='M0 4.6h60M0 9.2h60M0 13.8h60M0 18.5h60M0 23.1h60M0 27.7h60M0 32.3h60M0 36.9h60' stroke='%23fff' stroke-width='3.1'/%3E%3Crect fill='%233c3b6e' width='24' height='17.1'/%3E%3C/svg%3E" alt="EN-US" style="width: 40px; height: 27px;")
-              h3 English (US)
-              p Resume in American English
-              a.cv-download-btn(href="/Curriculo%20Benevanio/Curriculo%20Benevanio%20English.pdf" download="Benevanio_Santos_Resume_EN.pdf")
-                i.fas.fa-download
-                | Download PDF
+                i.fas.fa-code
+                i.fab.fa-node-js(style="margin-left: 5px;")
+              h3 Back-End Node.js
+              p Node.js 22, TypeScript & APIs
+              .cv-lang
+                a.cv-download-btn(href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing#Benevanio_CV_Node_Backend_PT.pdf" download)
+                  i.fas.fa-flag-brazil
+                  | PT-BR
+                a.cv-download-btn(href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing#Benevanio_CV_Node_Backend_EN.pdf" download)
+                  i.fas.fa-flag-usa
+                  | EN-US
+          
+          .cv-option
+            .cv-card
+              .cv-icon
+                i.fas.fa-code
+                i.fas.fa-project-diagram(style="margin-left: 5px;")
+              h3 Integrações MuleSoft
+              p MuleSoft 4.x & API-Led
+              .cv-lang
+                a.cv-download-btn(href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing#Benevanio_CV_MuleSoft_Integrations_PT.pdf" download)
+                  i.fas.fa-flag-brazil
+                  | PT-BR
+                a.cv-download-btn(href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing#Benevanio_CV_MuleSoft_Integrations_EN.pdf" download)
+                  i.fas.fa-flag-usa
+                  | EN-US
+          
+          .cv-option
+            .cv-card
+              .cv-icon
+                i.fas.fa-code
+                i.fas.fa-layer-group(style="margin-left: 5px;")
+              h3 Full Stack MERN
+              p MongoDB, Express, React, Node
+              .cv-lang
+                a.cv-download-btn(href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing#Benevanio_CV_MERN_FullStack_PT.pdf" download)
+                  i.fas.fa-flag-brazil
+                  | PT-BR
+                a.cv-download-btn(href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing#Benevanio_CV_MERN_FullStack_EN.pdf" download)
+                  i.fas.fa-flag-usa
+                  | EN-US
+
+        p.small-text
+          i.fas.fa-info-circle
+          | Todos os currículos otimizados para ATS (Greenhouse, Workday, Lever)
 
   section.about#sobre
     .container
@@ -54,18 +97,33 @@ block content
         .divider
       .about-content
         .about-text
-          p Sou Engenheiro de Software e Desenvolvedor Full Stack, apaixonado por tecnologia, inovação e soluções distribuídas. Atualmente curso Pós-graduação em Arquitetura de Software Distribuído (PUC Minas), onde aprofundo meus conhecimentos em microsserviços, computação em nuvem e DevOps.
-          p Tenho experiência com Spring Boot, Node.js, React e MuleSoft, atuando no desenvolvimento de aplicações web, integração de APIs e automação de processos corporativos.
-          p Sou movido por desafios, aprendizado contínuo e pela busca de arquiteturas escaláveis e bem projetadas. Quando não estou codando, você me encontra assistindo Doctor Who, Star Wars ou algum anime clássico!
-        .about-skills
-          .skill-tag Spring
-          .skill-tag Node.js
-          .skill-tag React
-          .skill-tag MuleSoft
-          .skill-tag Docker
-          .skill-tag Kubernetes
-          .skill-tag AWS
-          .skill-tag Azure
+          p Sou <strong>Engenheiro de Software e Desenvolvedor Full Stack</strong>, com formação sólida e atuação em <strong>sistemas corporativos de grande escala</strong>. Atualmente curso <strong>Pós-graduação em Arquitetura de Software Distribuído (PUC Minas)</strong>, especializando-me em microsserviços, APIs de alta performance e observabilidade.
+          
+          p Atuo em projetos críticos para a <strong>Natura</strong> através da <strong>SysMap Solutions</strong>, com foco em:
+          
+          ul
+            li <strong>Integrações Corporativas</strong> - MuleSoft 4.x, API-Led Connectivity, DataWeave
+            li <strong>Desenvolvimento Back-End</strong> - Java (6/7), Spring Boot, Node.js 22, TypeScript
+            li <strong>Front-End & UX</strong> - React.js, performance web, experiência do usuário
+            li <strong>Performance & Escalabilidade</strong> - Otimização de fluxos de alta volumetria
+          
+          p Tenho <strong>resultados mensuráveis</strong> em performance (+25%), rastreabilidade (+40%) e redução de tempo de resposta (-30%). Sou movido por desafios técnicos complexos e pela construção de arquiteturas sustentáveis.
+          
+          p Fora do código, sou fã de <strong>animes, ficção científica e cultura geek</strong>, que alimentam minha criatividade e pensamento sistêmico.
+        
+        .about-stats
+          .stat-card
+            .stat-number +40%
+            .stat-label Rastreabilidade
+          .stat-card
+            .stat-number +25%
+            .stat-label Performance
+          .stat-card
+            .stat-number -30%
+            .stat-label Tempo Resposta
+          .stat-card
+            .stat-number 99.9%
+            .stat-label Disponibilidade
 
   section.education#formacao
     .container
@@ -74,91 +132,123 @@ block content
         .divider
       .education-timeline
         .education-item
-          .education-year 2025 - Atual
+          .education-year 2025 - 2027
           .education-content
             h3 Pós-graduação em Arquitetura de Software Distribuído
             h4 PUC Minas
-            p Aprofundamento em microsserviços, computação em nuvem, DevOps e arquiteturas escaláveis para sistemas distribuídos.
+            p Especialização em microsserviços, computação em nuvem, DevOps, observabilidade e arquiteturas escaláveis para sistemas distribuídos de grande escala.
         
         .education-item
           .education-year 2021 - 2025
           .education-content
-            h3 Engenharia de Software
-            h4 Faculdade Anhanguera
-            p Graduação focada em desenvolvimento de software, análise de sistemas e gestão de projetos tecnológicos.
+            h3 Bacharelado em Engenharia de Software
+            h4 Anhanguera Educacional
+            p Graduação focada em desenvolvimento de software, análise de sistemas, gestão de projetos tecnológicos e qualidade de software.
 
   section.experience#experiencia
     .container
       .section-title
         h2 Experiência Profissional
         .divider
-      .education-timeline
-        .education-item
-          .education-year jun 2023 - Atual
-          .education-content
-            h3 Back End Developer
-            h4 SysMap Solutions
+      .experience-timeline
+        .experience-item
+          .experience-year jun 2023 - Atual
+          .experience-content
+            h3 Desenvolvedor Back-End & Integrações
+            h4 SysMap Solutions (Terceirizado Natura)
             .experience-location
               i.fas.fa-map-marker-alt
               | São Paulo, Brasil · Remota
             
-            h5 Principais Responsabilidades:
+            .experience-tags
+              span.tag MuleSoft 4.x
+              span.tag Java 6/7
+              span.tag Node.js 22
+              span.tag React.js
+              span.tag Oracle
+              span.tag MySQL
             
-            p 
-              strong Integração MuleSoft / Sustentação: 
-              | Iniciei atuando na equipe de Integração da Natura realizando suporte em APIs existentes, tratamento de erros, melhorias nos logs com JSON Logger e levantamento de métricas de desempenho.
+            .experience-phase
+              h5
+                i.fas.fa-link
+                | Integrações & API-Led (MuleSoft)
+              p Atuação no núcleo de integrações corporativas, desenvolvendo e sustentando APIs críticas com arquitetura API-Led Connectivity. Implementação de logging estruturado e dashboards de monitoramento com Kibana.
+              ul
+                li <strong>+40% rastreabilidade</strong> através de logging estruturado
+                li <strong>+25% performance</strong> em fluxos críticos via otimizações
+                li Configuração de políticas de segurança (OAuth, TLS) e throttling
+                li Monitoramento proativo com Kibana e métricas de desempenho
             
-            p 
-              strong Equipe GPP (Cadastro de Consultoras): 
-              | Desenvolvimento de novas funcionalidades no módulo de cadastro de consultoras, utilizando MySQL, Oracle, Query Builder (Knex.js), TypeScript, React e Kibana.
+            .experience-phase
+              h5
+                i.fas.fa-database
+                | Full Stack & Dados (GPP)
+              p Desenvolvimento de funcionalidades críticas para cadastro de consultoras, trabalhando de ponta a ponta com React.js (front-end), Node.js/TypeScript (back-end) e bancos relacionais (MySQL, Oracle).
+              ul
+                li <strong>-30% tempo de resposta</strong> em consultas otimizadas
+                li Implementação de testes automatizados e práticas de CI/CD
+                li Integração com sistemas legados e APIs corporativas
             
-            p 
-              strong Global Sales Platform (GSP): 
-              | Continuo atuando focado nas vendas da JCB e melhorias de sistema para suportar crescimento, desempenho e qualidade.
-            
-            h5 Principais Conquistas:
-            ul
-              li Otimização de Logs: +40% na rastreabilidade de erros
-              li Gestão de Incidentes: SLA de 95% de disponibilidade
-              li Performance: +25% de melhoria em fluxos de integração
-              li Desenvolvimento Ágil: +2 funcionalidades entregues por sprint
-              li Qualidade de Código: +80% na cobertura de testes automatizados
-              li Escalabilidade: Suporte a +30% de aumento no volume de transações
-              li Colaboração Efetiva: Trabalho integrado com times multifuncionais
+            .experience-phase
+              h5
+                i.fas.fa-chart-line
+                | Performance & Escalabilidade (GSP - JCB)
+              p Atuação na Global Sales Platform (GSP), focando em otimizações de performance, escalabilidade e estabilidade nos fluxos de alta volumetria da JCB.
+              ul
+                li Containerização com Docker e deploy em ambiente AWS
+               li Otimização de fluxos de venda para alta disponibilidade
+                li Trabalho em squad ágil com foco em métricas de negócio
 
   section.skills#skills
     .container
       .section-title
-        h2 Minhas Skills
+        h2 Stack Técnica
         .divider
       .skills-grid
         .skill-category
-          h3 Back-end
+          h3
+            i.fas.fa-server
+            | Back-End
           ul
             li 
               i.fas.fa-check
-              | Java & Spring
+              | Java 6/7 & Spring Boot
             li 
               i.fas.fa-check
-              | Node.js & Express
+              | Node.js 22 & TypeScript
             li 
               i.fas.fa-check
-              | MuleSoft
+              | MuleSoft 4.x & API-Led
+            li 
+              i.fas.fa-check
+              | RESTful APIs & SOAP
+        
         .skill-category
-          h3 Front-end
+          h3
+            i.fas.fa-desktop
+            | Front-End
           ul
             li 
               i.fas.fa-check
-              | React
+              | React.js & Hooks
             li 
               i.fas.fa-check
-              | HTML/CSS/SASS
+              | Context API
+            li 
+              i.fas.fa-check
+              | HTML5/CSS3/SASS
             li 
               i.fas.fa-check
               | Bootstrap
+        
         .skill-category
-          h3 Banco de Dados
+          h3
+            i.fas.fa-database
+            | Bancos de Dados
           ul
+            li 
+              i.fas.fa-check
+              | Oracle
             li 
               i.fas.fa-check
               | MySQL
@@ -168,144 +258,237 @@ block content
             li 
               i.fas.fa-check
               | MongoDB
-        .skill-category 
-          h3 Mobile
-          ul
-            li 
-              i.fas.fa-check
-              | React Native
-            li 
-              i.fas.fa-check
-              | Expo
+        
         .skill-category
-          h3 DevOps & Cloud
+          h3
+            i.fas.fa-cloud
+            | DevOps & Cloud
           ul
             li 
               i.fas.fa-check
-              | Docker
+              | Docker & Containerização
             li 
               i.fas.fa-check
-              | Kubernetes
+              | AWS (EC2, S3, Lambda)
             li 
               i.fas.fa-check
-              | AWS
+              | Kibana & Observabilidade
             li 
               i.fas.fa-check
-              | Azure
+              | Git & CI/CD
+        
+        .skill-category
+          h3
+            i.fas.fa-cogs
+            | Metodologias
+          ul
             li 
               i.fas.fa-check
-              | Git
+              | Clean Architecture
+            li 
+              i.fas.fa-check
+              | SOLID & Design Patterns
+            li 
+              i.fas.fa-check
+              | TDD & Testes Automatizados
+            li 
+              i.fas.fa-check
+              | Scrum & Ágil
+        
+        .skill-category
+          h3
+            i.fas.fa-language
+            | Idiomas
+          ul
+            li 
+              i.fas.fa-check
+              | Português (Nativo)
+            li 
+              i.fas.fa-check
+              | Inglês (Leitura Técnica)
 
   section.projects#projetos
     .container
       .section-title
-        h2 Projetos Destacados
+        h2 Projetos Técnicos
         .divider
       .projects-grid
         .project-card
+          .project-badge Back-End
           .project-info
-            h3 AuthKnex (Node.js + Knex)
-            p Sistema de autenticação com Node.js, Knex e JWT
+            h3 AuthKnex
+            p Sistema de autenticação robusto com Node.js, TypeScript, JWT e PostgreSQL. Inclui controle de roles, refresh token e segurança empresarial.
+            .project-tech
+              span Node.js
+              span TypeScript
+              span PostgreSQL
+              span JWT
             a.project-link(href="https://github.com/Benevanio/AuthKnex", target="_blank")
-              | Ver no GitHub 
               i.fab.fa-github
+              | Ver no GitHub
 
         .project-card
+          .project-badge Back-End
           .project-info
-            h3 Games API (Node + MongoDB)
-            p API de jogos com Node.js e MongoDB
-            a.project-link(href="https://github.com/Benevanio/games-api-mongo-node", target="_blank")
-              | Ver no GitHub 
+            h3 RestSpring
+            p API RESTful desenvolvida com Spring Boot, JPA/Hibernate, documentação Swagger/OpenAPI e versionamento de API.
+            .project-tech
+              span Spring Boot
+              span Java
+              span H2 Database
+              span Swagger
+            a.project-link(href="https://github.com/Benevanio/RestSpring", target="_blank")
               i.fab.fa-github
+              | Ver no GitHub
 
         .project-card
+          .project-badge Full Stack
           .project-info
-            h3 Social Media (Full Stack)
-            p Aplicação de rede social completa
+            h3 Social Media API
+            p Aplicação completa de rede social com back-end em Node.js/Express, MongoDB e front-end responsivo com React.js.
+            .project-tech
+              span Node.js
+              span React
+              span MongoDB
+              span JWT
             a.project-link(href="https://github.com/Benevanio/socialmedia", target="_blank")
-              | Ver no GitHub 
               i.fab.fa-github
+              | Ver no GitHub
 
         .project-card
+          .project-badge Integrações
+          .project-info
+            h3 MuleSoft Integrations
+            p Integrações corporativas utilizando MuleSoft 4.x, API-Led Connectivity e DataWeave para transformações complexas.
+            .project-tech
+              span MuleSoft
+              span API-Led
+              span DataWeave
+              span REST/SOAP
+            a.project-link(href="https://github.com/Benevanio/api-specification", target="_blank")
+              i.fab.fa-github
+              | Ver no GitHub
+
+        .project-card
+          .project-badge Back-End
+          .project-info
+            h3 Games API
+            p API de jogos com Node.js e MongoDB, incluindo CRUD completo, filtros avançados e paginação.
+            .project-tech
+              span Node.js
+              span MongoDB
+              span Express
+              span Mongoose
+            a.project-link(href="https://github.com/Benevanio/games-api-mongo-node", target="_blank")
+              i.fab.fa-github
+              | Ver no GitHub
+
+        .project-card
+          .project-badge Full Stack
           .project-info
             h3 Post/Comment API
-            p API de posts e comentários
+            p Sistema de posts e comentários com relacionamentos complexos, desenvolvido para estudo de arquiteturas de API.
+            .project-tech
+              span Node.js
+              span Express
+              span MySQL
+              span REST API
             a.project-link(href="https://github.com/Benevanio/post-comment-example", target="_blank")
-              | Ver no GitHub 
               i.fab.fa-github
-
-        .project-card
-          .project-info
-            h3 API Specification (MuleSoft)
-            p Especificação de API com MuleSoft
-            a.project-link(href="https://github.com/Benevanio/api-specification", target="_blank")
-              | Ver no GitHub 
-              i.fab.fa-github
-
-        .project-card
-          .project-info
-            h3 API Core (MuleSoft)
-            p Núcleo de API com MuleSoft
-            a.project-link(href="https://github.com/Benevanio/api-core", target="_blank")
-              | Ver no GitHub 
-              i.fab.fa-github
+              | Ver no GitHub
 
   section.contact#contato
-  .container
-    .section-title
-      h2 Contato
-      .divider
-    .contact-grid
-      .contact-card
-        .contact-icon
-          i.fab.fa-linkedin
-        h3 LinkedIn
-        p Conecte-se profissionalmente
-        a.contact-btn(href="https://linkedin.com/in/bene-tesla" target="_blank")
-          | Acessar 
-          i.fas.fa-arrow-right
+    .container
+      .section-title
+        h2 Contato
+        .divider
+      .contact-grid
+        .contact-card
+          .contact-icon
+            i.fab.fa-linkedin
+          h3 LinkedIn
+          p Conecte-se profissionalmente
+          p.small Perfil atualizado com experiência e formação
+          a.contact-btn(href="https://linkedin.com/in/bene-tesla" target="_blank")
+            | Acessar Perfil
+            i.fas.fa-arrow-right
 
-      .contact-card
-        .contact-icon
-          i.fab.fa-github
-        h3 GitHub
-        p Veja meus projetos
-        a.contact-btn(href="https://github.com/Benevanio" target="_blank")
-          | Acessar 
-          i.fas.fa-arrow-right
+        .contact-card
+          .contact-icon
+            i.fab.fa-github
+          h3 GitHub
+          p Projetos técnicos e códigos
+          p.small Repositórios ativos e em evolução
+          a.contact-btn(href="https://github.com/Benevanio" target="_blank")
+            | Ver Repositórios
+            i.fas.fa-arrow-right
 
-      .contact-card
-        .contact-icon
-          i.fab.fa-twitter
-        h3 Twitter
-        p Me siga para updates
-        a.contact-btn(href="https://twitter.com/BenevanioS" target="_blank")
-          | Acessar 
-          i.fas.fa-arrow-right
+        .contact-card
+          .contact-icon
+            i.fas.fa-envelope
+          h3 Email
+          p Contato profissional
+          p.small Resposta em até 24h úteis
+          a.contact-btn(href="mailto:benevaniosantos930@gmail.com")
+            | Enviar Email
+            i.fas.fa-arrow-right
 
-      .contact-card
-        .contact-icon
-          i.fab.fa-instagram
-        h3 Instagram
-        p Meu dia-a-dia dev
-        a.contact-btn(href="https://instagram.com/bene_tesla_dev" target="_blank")
-          | Acessar 
-          i.fas.fa-arrow-right
+        .contact-card
+          .contact-icon
+            i.fab.fa-whatsapp
+          h3 WhatsApp
+          p Conversas diretas
+          p.small Horário comercial (9h-18h)
+          a.contact-btn(href="https://wa.me/5519998283835" target="_blank")
+            | Iniciar Conversa
+            i.fas.fa-arrow-right
 
-      .contact-card
-        .contact-icon
-          i.fas.fa-envelope
-        h3 Email
-        p Me mande uma mensagem
-        a.contact-btn(href="mailto:benevaniosantos930@gmail.com")
-          | Enviar 
-          i.fas.fa-arrow-right
+        .contact-card
+          .contact-icon
+            i.fas.fa-file-pdf
+          h3 Currículos
+          p Download especializado
+          p.small 8 versões ATS-otimizadas
+          a.contact-btn#open-cv-modal-2(href="#")
+            | Ver Currículos
+            i.fas.fa-download
 
-      .contact-card
-        .contact-icon
-          i.fab.fa-whatsapp
-        h3 WhatsApp
-        p Vamos conversar
-        a.contact-btn(href="https://wa.me/5519998283835" target="_blank")
-          | Chamar 
-          i.fas.fa-arrow-right
+        .contact-card
+          .contact-icon
+            i.fas.fa-globe
+          h3 Portfolio
+          p Esta página
+          p.shard.small-text Atualizado Nov/2024
+          a.contact-btn(href="https://bene-tesla-dev.vercel.app" target="_blank")
+            | Acessar Site
+            i.fas.fa-external-link-alt
+
+  // JavaScript para modal
+  script.
+    // Modal para currículos
+    const cvModal = document.getElementById('cv-modal');
+    const openCvModal = document.getElementById('open-cv-modal');
+    const openCvModal2 = document.getElementById('open-cv-modal-2');
+    const closeCvModal = document.getElementById('close-cv-modal');
+    
+    openCvModal.addEventListener('click', (e) => {
+      e.preventDefault();
+      cvModal.style.display = 'block';
+    });
+    
+    if (openCvModal2) {
+      openCvModal2.addEventListener('click', (e) => {
+        e.preventDefault();
+        cvModal.style.display = 'block';
+      });
+    }
+    
+    closeCvModal.addEventListener('click', () => {
+      cvModal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', (e) => {
+      if (e.target === cvModal) {
+        cvModal.style.display = 'none';
+      }
+    });
