@@ -22,6 +22,104 @@ function initMobileMenu() {
   });
 }
 
+function initThemeToggle() {
+  const root = document.documentElement;
+  const themeToggle = document.querySelector('[data-theme-toggle]');
+  const teslaOverlay = document.querySelector('[data-tesla-overlay]');
+  const ambientGlow = document.querySelector('[data-ambient-glow]');
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let isTransitioning = false;
+
+  function getStoredTheme() {
+    try {
+      return localStorage.getItem('theme');
+    } catch (error) {
+      return null;
+    }
+  }
+
+  function getPreferredTheme() {
+    return getStoredTheme() || (mediaQuery.matches ? 'dark' : 'light');
+  }
+
+  function setStoredTheme(theme) {
+    try {
+      localStorage.setItem('theme', theme);
+    } catch (error) {
+      // Ignore storage failures and keep runtime behavior.
+    }
+  }
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+
+    if (themeToggle) {
+      const label = theme === 'dark' ? 'Alternar para modo claro' : 'Alternar para modo escuro';
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.setAttribute('title', label);
+    }
+  }
+
+  async function runTeslaTransition(nextTheme) {
+    if (isTransitioning) {
+      return;
+    }
+
+    if (!teslaOverlay || !ambientGlow || reducedMotionQuery.matches) {
+      applyTheme(nextTheme);
+      setStoredTheme(nextTheme);
+      return;
+    }
+
+    isTransitioning = true;
+    ambientGlow.classList.add('is-active');
+
+    await new Promise((resolve) => window.setTimeout(resolve, 1000));
+
+    teslaOverlay.classList.add('is-active');
+
+    await new Promise((resolve) => window.setTimeout(resolve, 2000));
+
+    teslaOverlay.classList.remove('is-active');
+    applyTheme(nextTheme);
+    setStoredTheme(nextTheme);
+
+    await new Promise((resolve) => window.setTimeout(resolve, 1000));
+
+    ambientGlow.classList.remove('is-active');
+    isTransitioning = false;
+  }
+
+  applyTheme(getPreferredTheme());
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', async () => {
+      if (isTransitioning) {
+        return;
+      }
+
+      const currentTheme = root.getAttribute('data-theme') || getPreferredTheme();
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      await runTeslaTransition(nextTheme);
+    });
+  }
+
+  const handleSystemThemeChange = (event) => {
+    if (getStoredTheme()) {
+      return;
+    }
+
+    applyTheme(event.matches ? 'dark' : 'light');
+  };
+
+  if (typeof mediaQuery.addEventListener === 'function') {
+    mediaQuery.addEventListener('change', handleSystemThemeChange);
+  } else if (typeof mediaQuery.addListener === 'function') {
+    mediaQuery.addListener(handleSystemThemeChange);
+  }
+}
+
 function initModal() {
   const triggers = document.querySelectorAll('[data-modal-target]');
   const closers = document.querySelectorAll('[data-modal-close]');
@@ -118,6 +216,7 @@ function initScrollAnimations() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initMobileMenu();
   initModal();
   initScrollAnimations();

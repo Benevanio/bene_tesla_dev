@@ -1,15 +1,31 @@
 /* 1. Tokens (Variables) */
 :root {
-  --color-brand: #1d4ed8;
+  --bg-primary: #ffffff;
+  --text-primary: #1e293b;
+  --text-muted: #475569;
+  --card-bg: #f1f5f9;
+  --card-border: #e2e8f0;
+  --primary: #3b82f6;
+  --secondary: #10b981;
+  --accent: #06b6d4;
+  --surface-elevated: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.94);
+  --footer-bg: #e2e8f0;
+  --section-soft: #eff6ff;
+  --surface-soft: #f1f5f9;
+  --nav-hover: #e0e7ff;
+  --card-glow: 0 0 0 rgba(59, 130, 246, 0);
+
+  --color-brand: var(--primary);
   --color-brand-dark: #1e3a8a;
-  --color-accent: #0891b2;
+  --color-accent: var(--accent);
   --color-success: #0f766e;
-  --color-bg: #f8fafc;
-  --color-surface: #ffffff;
-  --color-surface-muted: #e2e8f0;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-border: #cbd5e1;
+  --color-bg: var(--bg-primary);
+  --color-surface: var(--surface-elevated);
+  --color-surface-muted: var(--card-bg);
+  --color-text: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--card-border);
 
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
@@ -31,6 +47,34 @@
   --font-body: 'Public Sans', sans-serif;
 }
 
+[data-theme="dark"] {
+  --bg-primary: #121826;
+  --text-primary: #f1f5f9;
+  --text-muted: #cbd5e1;
+  --card-bg: #1e293b;
+  --card-border: #334155;
+  --primary: #60a5fa;
+  --secondary: #34d399;
+  --accent: #22d3ee;
+  --surface-elevated: #182131;
+  --header-bg: rgba(18, 24, 38, 0.92);
+  --footer-bg: #162031;
+  --section-soft: #162031;
+  --surface-soft: #202b3f;
+  --nav-hover: rgba(96, 165, 250, 0.14);
+  --card-glow: 0 0 0 1px rgba(96, 165, 250, 0.12), 0 16px 36px rgba(52, 211, 153, 0.08);
+
+  --color-brand: var(--primary);
+  --color-brand-dark: #bfdbfe;
+  --color-accent: var(--accent);
+  --color-bg: var(--bg-primary);
+  --color-surface: var(--surface-elevated);
+  --color-surface-muted: var(--card-bg);
+  --color-text: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--card-border);
+}
+
 /* 2. Base */
 * {
   box-sizing: border-box;
@@ -47,6 +91,7 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.65;
+  transition: background-color 1s ease, color 1s ease;
 }
 
 h1,
@@ -119,7 +164,7 @@ section {
   cursor: pointer;
   padding: 0.72rem 1.05rem;
   font-size: 0.93rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 }
 
 .btn:hover {
@@ -159,13 +204,13 @@ section {
 }
 
 .pill-tag {
-  background: #dbeafe;
+  background: color-mix(in srgb, var(--primary) 20%, transparent);
   color: var(--color-brand-dark);
 }
 
 .arch-tag {
-  background: #ccfbf1;
-  color: #0f766e;
+  background: color-mix(in srgb, var(--secondary) 20%, transparent);
+  color: var(--secondary);
 }
 
 /* 4. Layout */
@@ -173,9 +218,10 @@ section {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(248, 250, 252, 0.92);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
+  transition: background-color 1s ease, border-color 1s ease;
 }
 
 .site-nav {
@@ -209,7 +255,46 @@ section {
 
 .nav-menu a:hover {
   color: var(--color-brand-dark);
-  background: #e0e7ff;
+  background: var(--nav-hover);
+}
+
+.theme-toggle {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-brand-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+}
+
+.theme-toggle__icon {
+  position: absolute;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.theme-toggle__icon--sun {
+  opacity: 0;
+  transform: scale(0.7) rotate(-20deg);
+}
+
+[data-theme="dark"] .theme-toggle__icon--moon {
+  opacity: 0;
+  transform: scale(0.7) rotate(20deg);
+}
+
+[data-theme="dark"] .theme-toggle__icon--sun {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
 }
 
 .hamburger {
@@ -229,8 +314,9 @@ section {
 
 .site-footer {
   border-top: 1px solid var(--color-border);
-  background: #e2e8f0;
+  background: var(--footer-bg);
   padding: var(--space-xl) 0;
+  transition: background-color 1s ease, border-color 1s ease;
 }
 
 .social-links {
@@ -254,9 +340,10 @@ section {
 /* 5. Sections */
 .hero {
   background:
-    radial-gradient(circle at top right, rgba(8, 145, 178, 0.18), transparent 40%),
-    linear-gradient(130deg, #eff6ff, #f8fafc 50%, #ecfeff);
+    radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 40%),
+    linear-gradient(130deg, color-mix(in srgb, var(--primary) 10%, var(--bg-primary)), var(--bg-primary) 50%, color-mix(in srgb, var(--accent) 10%, var(--bg-primary)));
   padding-top: calc(var(--space-3xl) + 1.4rem);
+  transition: background 1s ease;
 }
 
 .hero-content {
@@ -308,7 +395,8 @@ section {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), var(--card-glow);
+  transition: background-color 1s ease, border-color 1s ease, box-shadow 1s ease;
 }
 
 .about-card,
@@ -331,7 +419,7 @@ section {
   border-radius: 999px;
   padding: 0.35rem 0.65rem;
   border: 1px solid var(--color-border);
-  background: #f1f5f9;
+  background: var(--surface-soft);
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--color-brand-dark);
@@ -347,7 +435,7 @@ section {
 .result-cell {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background: #f8fafc;
+  background: var(--card-bg);
   padding: var(--space-sm);
 }
 
@@ -358,7 +446,7 @@ section {
 }
 
 .key-results {
-  background: #eff6ff;
+  background: var(--section-soft);
 }
 
 .stats-grid {
@@ -418,7 +506,7 @@ section {
 }
 
 .principles {
-  background: #f8fafc;
+  background: var(--card-bg);
 }
 
 .principles-grid {
@@ -469,7 +557,7 @@ section {
 .project-tech span {
   border-radius: var(--radius-sm);
   padding: 0.25rem 0.45rem;
-  background: #f1f5f9;
+  background: var(--surface-soft);
   border: 1px solid var(--color-border);
   font-size: 0.76rem;
   color: var(--color-brand-dark);
@@ -485,7 +573,7 @@ section {
 }
 
 .contact {
-  background: #eef2ff;
+  background: var(--section-soft);
 }
 
 .contact-actions {
@@ -607,6 +695,98 @@ section {
   transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
+.tesla-overlay {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  max-width: 80px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2s ease;
+}
+
+.tesla-overlay.is-active {
+  opacity: 0.4;
+}
+
+.tesla-tribute {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.45rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-surface) 82%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 30%, transparent);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.16);
+}
+
+.tesla-portrait {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  object-fit: cover;
+  filter: sepia(0.3) brightness(1.08);
+  box-shadow: 0 0 15px rgba(96, 165, 250, 0.25);
+  animation: gentlePulse 4s ease-in-out infinite;
+}
+
+.tesla-symbol {
+  color: var(--primary);
+  font-size: 1rem;
+  line-height: 1;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.25);
+}
+
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(96, 165, 250, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.ambient-glow.is-active {
+  opacity: 0.2;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(96, 165, 250, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(96, 165, 250, 0.4); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .theme-toggle,
+  .theme-toggle__icon,
+  .tesla-overlay,
+  .tesla-tribute,
+  .tesla-portrait,
+  .ambient-glow,
+  .btn,
+  body,
+  .site-header,
+  .site-footer,
+  .hero,
+  .about-card,
+  .results-mini,
+  .stat-card,
+  .principle-card,
+  .project-card,
+  .contact-card,
+  .timeline-item,
+  .cv-option {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .about-grid,
   .stats-grid,
@@ -631,6 +811,11 @@ section {
 
   .hamburger {
     display: block;
+  }
+
+  .theme-toggle {
+    margin-left: auto;
+    margin-right: var(--space-sm);
   }
 
   .nav-menu {
@@ -670,5 +855,10 @@ section {
   .modal__dialog {
     margin-top: 5vh;
     padding: var(--space-lg);
+  }
+
+  .tesla-overlay {
+    right: 12px;
+    bottom: 12px;
   }
 }

@@ -6,6 +6,17 @@ html(lang="pt-BR")
       meta(name="viewport" content="width=device-width, initial-scale=1")
       meta(name="description" content="Portfolio profissional de Benevanio Santos, Engenheiro de Software")
       title Benevanio Santos | Engenheiro de Software
+      script.
+        (() => {
+          try {
+            const storedTheme = localStorage.getItem('theme')
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+            const theme = storedTheme || (systemPrefersDark ? 'dark' : 'light')
+            document.documentElement.setAttribute('data-theme', theme)
+          } catch (error) {
+            document.documentElement.setAttribute('data-theme', 'light')
+          }
+        })()
       link(rel="preconnect" href="https://fonts.googleapis.com")
       link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
       link(href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet")
@@ -13,10 +24,18 @@ html(lang="pt-BR")
       link(rel="stylesheet" href="/stylesheets/style.css?v=7")
   body
     a.skip-link(href="#main-content") Ir para o conteudo principal
+    .ambient-glow(data-ambient-glow aria-hidden="true")
+    .tesla-overlay(data-tesla-overlay aria-hidden="true")
+      .tesla-tribute
+        img.tesla-portrait(src="https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg" alt="Retrato classico de Nikola Tesla")
+        span.tesla-symbol(data-tesla-symbol) ⚡
     header.site-header
       .container
         nav.site-nav(aria-label="Principal")
           a.logo(href="#intro" aria-label="Inicio") BS
+          button.theme-toggle(type="button" aria-label="Alternar tema" title="Alternar tema" data-theme-toggle)
+            i.fas.fa-moon.theme-toggle__icon.theme-toggle__icon--moon(aria-hidden="true")
+            i.fas.fa-sun.theme-toggle__icon.theme-toggle__icon--sun(aria-hidden="true")
           button.hamburger(type="button" aria-label="Abrir menu" aria-expanded="false" data-menu-toggle)
             span
             span
