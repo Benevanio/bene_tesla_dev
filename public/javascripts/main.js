@@ -27,8 +27,13 @@ function initThemeToggle() {
   const themeToggle = document.querySelector('[data-theme-toggle]');
   const teslaOverlay = document.querySelector('[data-tesla-overlay]');
   const ambientGlow = document.querySelector('[data-ambient-glow]');
-  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const supportsMatchMedia = typeof window.matchMedia === 'function';
+  const mediaQuery = supportsMatchMedia
+    ? window.matchMedia('(prefers-color-scheme: dark)')
+    : { matches: false };
+  const reducedMotionQuery = supportsMatchMedia
+    ? window.matchMedia('(prefers-reduced-motion: reduce)')
+    : { matches: false };
   let isTransitioning = false;
 
   function getStoredTheme() {
@@ -113,9 +118,9 @@ function initThemeToggle() {
     applyTheme(event.matches ? 'dark' : 'light');
   };
 
-  if (typeof mediaQuery.addEventListener === 'function') {
+  if (supportsMatchMedia && typeof mediaQuery.addEventListener === 'function') {
     mediaQuery.addEventListener('change', handleSystemThemeChange);
-  } else if (typeof mediaQuery.addListener === 'function') {
+  } else if (supportsMatchMedia && typeof mediaQuery.addListener === 'function') {
     mediaQuery.addListener(handleSystemThemeChange);
   }
 }
