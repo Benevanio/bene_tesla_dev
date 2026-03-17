@@ -1,0 +1,34 @@
+mixin statCard(value, label, context)
+  article.stat-card
+    p.stat-card__value= value
+    h3.stat-card__label= label
+    p.stat-card__context= context
+
+mixin principleCard(icon, title, description)
+  article.principle-card.reveal
+    i(class=icon aria-hidden="true")
+    h3= title
+    p= description
+
+mixin projectCard(project)
+  article.project-card.reveal
+    .project-card__header
+      span.pill-tag= project.type
+      span.arch-tag Arquitetura: #{project.architecture}
+    h3= project.name
+    p= project.description
+    .project-tech
+      each tech in project.tech
+        span= tech
+    a.project-link(href=project.link target="_blank" rel="noopener noreferrer")
+      i.fab.fa-github(aria-hidden="true")
+      span Ver no GitHub
+
+mixin contactCard(icon, title, text, helper, href, cta)
+  article.contact-card.reveal
+    .contact-icon
+      i(class=icon aria-hidden="true")
+    h3= title
+    p= text
+    p.small= helper
+    a.btn.btn-secondary(href=href target="_blank" rel="noopener noreferrer")= cta

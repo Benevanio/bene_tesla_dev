@@ -1,0 +1,12 @@
+include ../mixins/cards.pug
+
+section.projects#projects(data-section="projects")
+  .container
+    .section-title
+      h2 Projetos Tecnicos
+      p Projetos com foco em arquitetura, integracoes e engenharia de software.
+    .projects-grid
+      +projectCard({ type: 'Back-End', architecture: 'Clean Architecture', name: 'AuthKnex', description: 'Sistema de autenticacao com Node.js, TypeScript, JWT e estrategia de seguranca para APIs empresariais.', tech: ['Node.js', 'TypeScript', 'PostgreSQL', 'JWT'], link: 'https://github.com/Benevanio/AuthKnex' })
+      +projectCard({ type: 'Back-End', architecture: 'MVC', name: 'RestSpring', description: 'API REST com Java e Spring Boot, documentacao OpenAPI e padroes para governanca de endpoints.', tech: ['Java', 'Spring Boot', 'JPA', 'OpenAPI'], link: 'https://github.com/Benevanio/RestSpring' })
+      +projectCard({ type: 'Integracoes', architecture: 'API-Led', name: 'MuleSoft Integrations', description: 'Implementacao de fluxos MuleSoft com DataWeave e politicas para integracoes corporativas.', tech: ['MuleSoft', 'DataWeave', 'REST', 'SOAP'], link: 'https://github.com/Benevanio/api-specification' })
+      +projectCard({ type: 'Full Stack', architecture: 'SPA + API', name: 'Social Media API', description: 'Aplicacao de estudo com back-end Node.js e front-end React, cobrindo autenticacao e modelagem social.', tech: ['Node.js', 'React', 'MongoDB', 'Express'], link: 'https://github.com/Benevanio/socialmedia' })

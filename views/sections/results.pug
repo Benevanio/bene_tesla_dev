@@ -1,0 +1,12 @@
+include ../mixins/cards.pug
+
+section.key-results#results(data-section="results")
+  .container
+    .section-title
+      h2 Resultados Chave
+      p Impacto mensuravel em operacoes digitais da Natura.
+    .stats-grid
+      +statCard('+40%', 'Rastreabilidade', 'Observabilidade e rastreamento em fluxos API-Led')
+      +statCard('+25%', 'Performance', 'Otimizacao de processamento em APIs corporativas')
+      +statCard('-30%', 'Tempo de Resposta', 'Reducao de latencia em servicos criticos')
+      +statCard('99.9%', 'Disponibilidade', 'Confiabilidade operacional em ambiente produtivo')

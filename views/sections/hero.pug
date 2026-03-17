@@ -1,0 +1,14 @@
+include ../mixins/buttons.pug
+
+section.hero#intro(data-section="intro")
+  .container
+    .hero-content.reveal
+      p.eyebrow Engenheiro de Software | SysMap (Natura)
+      h1 Benevanio Santos
+      h2 Construo APIs e integrações escalaveis com foco em resultado de negocio.
+      p
+        | Atuacao em engenharia de software com Java, Node.js 22, MuleSoft, React e AWS,
+        |  entregando sistemas robustos para cenarios corporativos de alta criticidade.
+      .cta-buttons
+        +ctaButton('#contact', 'Vamos conversar', 'primary', 'fas fa-comments', null)
+        +modalTrigger('Baixar curriculos', 'success', 'fas fa-download', 'cv-modal')

@@ -1,0 +1,13 @@
+mixin ctaButton(href, label, variant, icon, target)
+  - const buttonClass = variant ? `btn btn-${variant}` : 'btn btn-primary'
+  a(class=buttonClass href=href target=target)
+    if icon
+      i(class=icon aria-hidden="true")
+    span= label
+
+mixin modalTrigger(label, variant, icon, modalTarget)
+  - const buttonClass = variant ? `btn btn-${variant}` : 'btn btn-primary'
+  button(type="button" class=buttonClass data-modal-target=modalTarget)
+    if icon
+      i(class=icon aria-hidden="true")
+    span= label

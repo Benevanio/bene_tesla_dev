@@ -1,0 +1,13 @@
+include ../mixins/cards.pug
+
+section.principles#principles(data-section="principles")
+  .container
+    .section-title
+      h2 Principios de Arquitetura
+      p Decisoes tecnicas orientadas a escalabilidade, manutenibilidade e clareza.
+    .principles-grid
+      +principleCard('fas fa-layer-group', 'Domain-Driven Design', 'Modelagem de dominio alinhada ao negocio e linguagem ubiqua.')
+      +principleCard('fas fa-bolt', 'Event-Driven Architecture', 'Integracoes assincronas para resiliencia e desacoplamento.')
+      +principleCard('fas fa-code', 'Clean Code', 'Codigo legivel, testavel e orientado a manutencao.')
+      +principleCard('fas fa-cubes', 'SOLID', 'Design orientado a responsabilidade unica e extensibilidade.')
+      +principleCard('fas fa-network-wired', 'API-Led Connectivity', 'Camadas Experience, Process e System para integracoes corporativas.')

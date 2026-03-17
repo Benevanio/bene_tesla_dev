@@ -1,0 +1,50 @@
+include ../mixins/cards.pug
+include ../mixins/buttons.pug
+
+section.contact#contact(data-section="contact")
+  .container
+    .section-title
+      h2 Contato
+      p Disponivel para oportunidades em engenharia de software, arquitetura e integracoes.
+    .contact-actions.reveal
+      a.btn.btn-primary(
+        href="https://calendar.google.com/calendar/u/0?cid=NmNlMTYwZGVkZThlNmViYTVlMGJhMmIxZDYxMTdjNGM5MTIwMDZhZDU2YzEzNmUwNzMzMjI1MGRmNTg5NGYzMUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+        target="_blank"
+        rel="noopener noreferrer"
+      )
+        i.fas.fa-calendar-alt(aria-hidden="true")
+        span Agendar conversa
+      +ctaButton('mailto:benevaniosantos930@gmail.com', 'Enviar email', 'secondary', 'fas fa-envelope', null)
+    p.small.reveal
+      | Para confirmar detalhes da conversa, envie a pauta para benevaniosantos930@gmail.com.
+    .contact-grid
+      +contactCard('fab fa-linkedin', 'LinkedIn', 'Networking e historico profissional.', 'Perfil com experiencia e certificacoes.', 'https://linkedin.com/in/bene-tesla', 'Abrir LinkedIn')
+      +contactCard('fab fa-github', 'GitHub', 'Repositorios tecnicos e experimentos.', 'Codigo fonte e evolucao continua.', 'https://github.com/Benevanio', 'Abrir GitHub')
+      +contactCard('fab fa-whatsapp', 'WhatsApp', 'Contato rapido para alinhamentos.', 'Retorno em horario comercial.', 'https://wa.me/5519998283835', 'Iniciar conversa')
+
+section.modal.modal--closed(data-modal="cv-modal" aria-hidden="true")
+  .modal__overlay(data-modal-close)
+  .modal__dialog(role="dialog" aria-modal="true" aria-labelledby="cv-modal-title")
+    button.modal__close(type="button" aria-label="Fechar" data-modal-close)
+      i.fas.fa-times(aria-hidden="true")
+    h3#cv-modal-title Curriculos por Especialidade
+    p Escolha a trilha e o idioma para download.
+    .cv-options
+      article.cv-option
+        h4 Back-End Java
+        p Java, Spring e arquitetura orientada a servicos.
+        .cv-actions
+          a.btn.btn-secondary(data-download-feedback href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing" target="_blank" rel="noopener noreferrer") PT-BR
+          a.btn.btn-secondary(data-download-feedback href="https://drive.google.com/file/d/1HN0lCBnDpoJmgKJ6I6HqmOy7IuTXMAKR/view?usp=sharing" target="_blank" rel="noopener noreferrer") EN-US
+      article.cv-option
+        h4 Back-End Node.js
+        p Node.js 22, TypeScript e APIs escalaveis.
+        .cv-actions
+          a.btn.btn-secondary(data-download-feedback href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing" target="_blank" rel="noopener noreferrer") PT-BR
+          a.btn.btn-secondary(data-download-feedback href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing" target="_blank" rel="noopener noreferrer") EN-US
+      article.cv-option
+        h4 MuleSoft Integrations
+        p API-Led Connectivity e DataWeave.
+        .cv-actions
+          a.btn.btn-secondary(data-download-feedback href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing" target="_blank" rel="noopener noreferrer") PT-BR
+          a.btn.btn-secondary(data-download-feedback href="https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing" target="_blank" rel="noopener noreferrer") EN-US
