@@ -1,76 +1,123 @@
-# 📌 Portfólio de Benevanio - Engenheiro de Software Full Stack
+# Portfolio - Benevanio Santos
 
-![Preview do Portfólio](https://github.com/user-attachments/assets/cb6c7950-30b5-4937-bd5b-fff273dc60fe)
+Portfolio profissional desenvolvido com Node.js, Express e Pug para apresentar experiencia, projetos tecnicos e canais de contato.
 
-## 🆕 Últimas Atualizações
 
-### ✅ Recém Implementado:
-- **Botão de Download do Currículo**: Adicionado botão verde na seção hero para download direto do CV
-- **Seção de Formação Profissional**: Nova seção com timeline das formações e certificações
-- **WhatsApp Contact**: Adicionado botão de contato via WhatsApp (19) 99828-3835
-- **Pós-graduação Adicionada**: Incluída formação em Arquitetura de Software Distribuído (PUC Minas)
-- **Skills Expandidas**: Adicionadas tecnologias como Docker, Kubernetes, AWS, Azure e bancos de dados
-- **Navegação Atualizada**: Menu atualizado para incluir a nova seção de formação
-- **Design Responsivo**: Timeline de formação adaptável para dispositivos móveis
+## Versão inicial
+![Preview do portfolio](https://github.com/user-attachments/assets/cb6c7950-30b5-4937-bd5b-fff273dc60fe)
 
-### 📋 Formações Incluídas:
-- Pós-graduação em Arquitetura de Software Distribuído - PUC Minas (2025 - Atual)
-- Engenharia de Software - Faculdade Anhanguera (2021 - 2025)
 
-## ✨ Sobre o Projeto
-Portfólio profissional desenvolvido para mostrar minha expertise como Engenheiro de Software Full Stack, destacando projetos reais, habilidades técnicas e formas de contato profissional.
+## Versão atual
 
-🔗 **Acesso online:** [https://bene-tesla-dev.vercel.app/](https://bene-tesla-dev.vercel.app/)
 
-## 🛠 Stack Tecnológica
+<img width="684" height="797" alt="Image" src="https://github.com/user-attachments/assets/1cadf9f6-9a8b-43b4-a8e4-fea68e0b513f" />
+
+
+<img width="640" height="744" alt="Image" src="https://github.com/user-attachments/assets/b570fc5a-d4c9-46f3-a78e-77de2056761e" />
+
+
+
+<img width="1877" height="767" alt="Image" src="https://github.com/user-attachments/assets/88f6d056-96bc-43e2-8153-f9909cfded12" />
+
+
+<img width="1875" height="794" alt="Image" src="https://github.com/user-attachments/assets/52deec10-1bf3-46ef-ab5f-755a4350b421" />
+
+## Acesso Online
+
+- Producao: [https://bene-tesla-dev.vercel.app/](https://bene-tesla-dev.vercel.app/)
+
+## O Que Este Site Apresenta
+
+- Secoes de carreira, resultados, principios, projetos e contato
+- Timeline profissional atualizada com atuacao para clientes Natura e Avon
+- Galeria de projetos com foco em backend, integracoes e observabilidade
+- Dark mode com persistencia de preferencia e transicoes suaves
+- Experiencia responsiva para desktop e mobile
+
+## Stack Tecnologica
+
 ### Front-end
-- **Pug/Jade** - Template engine para renderização dinâmica
-- **CSS3** - Estilização customizada
-- **Font Awesome** - Ícones profissionais
-- **Google Fonts (Poppins)** - Tipografia moderna
+
+- Pug (views componentizadas com includes e mixins)
+- CSS3 (design system com variaveis de tema)
+- JavaScript vanilla (interacoes, animacoes e dark mode)
+- Font Awesome (icones)
+- Google Fonts (Outfit e Public Sans)
 
 ### Back-end
-- **Node.js** - Ambiente de execução
-- **Express** - Framework web
-- **Pug** - Renderização de views
 
-### Infraestrutura
-- **Vercel** - Hospedagem e CI/CD
-- **Git** - Controle de versão
+- Node.js
+- Express
+- Pug como template engine
 
-## 🚀 Como Executar Localmente
+### Infra e Deploy
 
-### Pré-requisitos
-- Node.js v18+
-- npm v9+
+- Vercel
+- Git e GitHub
 
-### Instalação
+## Projetos em Destaque
+
+- AuthKnex
+- RestSpring
+- MuleSoft Integrations
+- Social Media API
+- Async Product Pipeline
+- Node Monitoring
+- Bene Tesla API
+- QueueMaster
+
+## Como Rodar Localmente
+
+### Pre-requisitos
+
+- Node.js 22+
+- npm 10+
+
+### Passos
+
 ```bash
-# Clone o repositório
-git clone https://github.com/Benevanio/portfolio.git
-
-# Instale as dependências
+git clone https://github.com/Benevanio/bene_tesla_dev.git
+cd bene_tesla_dev
 npm install
+```
 
-# Execute em modo desenvolvimento (com hot reload)
+### Ambiente de desenvolvimento
+
+```bash
 npm run dev
+```
 
-# Ou para produção
+### Ambiente de producao local
+
+```bash
 npm start
 ```
 
-## 🌟 Destaques
-- **Design Responsivo** - Adaptável a todos os dispositivos
-- **Download de Currículo** - Botão para download direto do CV
-- **Timeline Educacional** - Seção dedicada às formações profissionais
-- **SEO Otimizado** - Metatags e estrutura semântica
-- **Performance** - Carregamento rápido
-- **Projetos Reais** - Destaque de trabalhos profissionais
+## Scripts Disponiveis
 
-## 📞 Contato
-- **LinkedIn**: [linkedin.com/in/bene-tesla](https://linkedin.com/in/bene-tesla)
-- **GitHub**: [github.com/Benevanio](https://github.com/Benevanio)
-- **Email**: benevaniosantos930@gmail.com
+- `npm run dev`: inicia com nodemon
+- `npm start`: inicia o servidor Express
+- `npm run vercel-build`: instala dependencias para build no ambiente Vercel
 
-## 📜 Licença
-Este projeto está licenciado sob a licença MIT - consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
+## Estrutura Principal
+
+```text
+views/
+	mixins/
+	sections/
+public/
+	stylesheets/
+	javascripts/
+routes/
+bin/
+```
+
+## Contato
+
+- LinkedIn: [https://linkedin.com/in/bene-tesla](https://linkedin.com/in/bene-tesla)
+- GitHub: [https://github.com/Benevanio](https://github.com/Benevanio)
+- E-mail: benevaniosantos930@gmail.com
+
+## Licenca
+
+Este projeto esta sob a licenca MIT. Veja [LICENSE](LICENSE).
