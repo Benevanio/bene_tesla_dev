@@ -649,12 +649,15 @@ section {
   position: relative;
   z-index: 1;
   width: min(900px, calc(100% - 2rem));
-  margin: 7vh auto;
+  margin: 5vh auto;
   background: var(--color-surface);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-md);
   padding: var(--space-xl);
+  max-height: 88vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .modal__close {
@@ -868,8 +871,27 @@ section {
   }
 
   .modal__dialog {
-    margin-top: 5vh;
-    padding: var(--space-lg);
+    margin: 4vw auto;
+    padding: var(--space-md);
+    width: calc(100% - 1.5rem);
+    max-height: 92dvh;
+    border-radius: var(--radius-md);
+  }
+
+  .cv-options {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-option {
+    padding: var(--space-sm);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+
+  .cv-actions .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 2.75rem;
   }
 
   .tesla-overlay {
