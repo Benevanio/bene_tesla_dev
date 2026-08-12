@@ -232,7 +232,16 @@ function initWhatsAppLink() {
       event.preventDefault();
 
       const whatsappNumber = ['55', '19', '98283835'].join('');
-      const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+      const message = `Olá, Bene! Encontrei seu portfólio e gostaria de entrar em contato.
+
+Motivo do contato:
+• Oportunidade profissional
+• Projeto/serviço
+• Parceria
+• Outro
+
+Mensagem:`;
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
       window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     });
