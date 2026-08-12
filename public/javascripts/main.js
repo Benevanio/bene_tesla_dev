@@ -220,9 +220,29 @@ function initScrollAnimations() {
   revealItems.forEach((item) => observer.observe(item));
 }
 
+function initWhatsAppLink() {
+  const whatsappLinks = document.querySelectorAll('a[href="whatsapp"]');
+
+  if (!whatsappLinks.length) {
+    return;
+  }
+
+  whatsappLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      const whatsappNumber = ['55', '19', '98283835'].join('');
+      const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initMobileMenu();
   initModal();
   initScrollAnimations();
+  initWhatsAppLink();
 });
