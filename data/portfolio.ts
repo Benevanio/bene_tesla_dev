@@ -33,6 +33,8 @@ export const techStack = [
   { name: 'OpenAPI', category: 'Governança' },
   { name: 'Kibana', category: 'Observabilidade' },
   { name: 'DataWeave', category: 'Integração' },
+  { name: 'GraphQL', category: 'Integração' },
+  { name: 'ServiceNow', category: 'Suporte' }
 ]
 
 export const metrics = [
