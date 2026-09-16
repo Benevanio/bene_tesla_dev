@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Public+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0f1a;
+  --bg-surface: #111827;
+  --bg-elevated: #1a2332;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-subtle: #64748b;
+  --primary: #c8a97e;
+  --primary-light: #e8c99e;
+  --accent: #3b6e8f;
+  --accent-bright: #5b9cbf;
+  --border: #1e2d3d;
+  --border-light: #2a3f52;
+  --glow: rgba(200, 169, 126, 0.08);
+  --sertao: #c8893e;
+  --sertao-light: #e8a95e;
+  --rio: #2a5f7a;
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Public Sans', sans-serif;
+}
+[data-theme="light"] {
+  --bg: #f4f1eb;
+  --bg-surface: #faf8f4;
+  --bg-elevated: #eeebe5;
+
+  --text: #2d2925;
+  --text-muted: #625c55;
+  --text-subtle: #817a72;
+
+  --primary: #8a6338;
+  --primary-light: #ad875d;
+
+  --accent: #315d6d;
+  --accent-bright: #4b7887;
+
+  --border: #ddd8cf;
+  --border-light: #e7e2da;
+
+  --glow: rgba(138, 99, 56, 0.05);
+
+  --sertao: #8a6338;
+  --sertao-light: #ad875d;
+  --rio: #315d6d;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--primary);
+  color: #0a0f1a;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background: var(--primary);
+  color: var(--bg);
+  font-weight: 600;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.topo-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.025;
+  background-image: 
+    repeating-linear-gradient(0deg, var(--primary) 0px, transparent 1px, transparent 60px),
+    repeating-linear-gradient(90deg, var(--primary) 0px, transparent 1px, transparent 60px);
+}
