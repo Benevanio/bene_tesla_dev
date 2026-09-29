@@ -1,5 +1,6 @@
 'use client'
 import { AnimateIn } from '../ui/AnimateIn'
+import { CountUp } from '../ui/CountUp'
 import { personal, techStack, metrics } from '@/data/portfolio'
 
 export function About() {
@@ -36,7 +37,7 @@ export function About() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }}>
                 {metrics.map(m => (
                   <div key={m.label} style={{ borderLeft: '2px solid var(--primary)', paddingLeft: '1rem' }}>
-                    <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', lineHeight: 1 }}>{m.value}</p>
+                    <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', lineHeight: 1 }}><CountUp value={m.value} /></p>
                     <p style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text)', marginTop: '0.2rem' }}>{m.label}</p>
                     <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '0.2rem', lineHeight: 1.4 }}>{m.detail}</p>
                   </div>

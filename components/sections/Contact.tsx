@@ -5,6 +5,7 @@ import { Calendar, GitBranch, Link2, Mail, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
 import { AnimateIn } from '../ui/AnimateIn';
 import { CvModal } from '../ui/CvModal';
+import { lift, pop } from '../ui/motion';
 
 export function Contact() {
   const [cvOpen, setCvOpen] = useState(false)
@@ -29,8 +30,8 @@ export function Contact() {
             <AnimateIn delay={0.1}>
               <a href={personal.calendar} target="_blank" rel="noopener noreferrer"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'var(--primary)', color: '#0a0f1a', padding: '0.8rem 1.5rem', borderRadius: 10, fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', fontFamily: 'var(--font-heading)' }}
-                onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
-                onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+                onMouseEnter={e => { e.currentTarget.style.opacity = '0.9'; lift(e.currentTarget, true, { y: -2, scale: 1.02 }) }}
+                onMouseLeave={e => { e.currentTarget.style.opacity = '1'; lift(e.currentTarget, false, { y: -2, scale: 1.02 }) }}
               >
                 <Calendar size={16} /> Agendar conversa
               </a>
@@ -38,8 +39,8 @@ export function Contact() {
             <AnimateIn delay={0.15}>
               <a href={`mailto:${personal.email}`}
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'transparent', color: 'var(--text)', padding: '0.8rem 1.5rem', borderRadius: 10, fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', border: '1px solid var(--border-light)', fontFamily: 'var(--font-heading)', transition: 'border-color 0.2s' }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--primary)')}
-                onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--border-light)')}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--primary)'; lift(e.currentTarget, true, { y: -2, scale: 1.02 }) }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-light)'; lift(e.currentTarget, false, { y: -2, scale: 1.02 }) }}
               >
                 <Mail size={16} /> Enviar email
               </a>
@@ -54,11 +55,19 @@ export function Contact() {
             ].map(c => (
               <AnimateIn key={c.title}>
                 <a href={c.url} target="_blank" rel="noopener noreferrer"
-                  style={{ display: 'block', padding: '1.5rem', background: 'var(--bg-elevated)', border: '1px solid var(--border)', borderRadius: 14, textDecoration: 'none', transition: 'border-color 0.2s, transform 0.2s' }}
-                  onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'var(--primary)'; el.style.transform = 'translateY(-3px)' }}
-                  onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'var(--border)'; el.style.transform = 'translateY(0)' }}
+                  style={{ display: 'block', padding: '1.5rem', background: 'var(--bg-elevated)', border: '1px solid var(--border)', borderRadius: 14, textDecoration: 'none', transition: 'border-color 0.2s' }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = 'var(--primary)'
+                    lift(e.currentTarget, true, { y: -3, scale: 1 })
+                    pop(e.currentTarget.querySelector('[data-icon]') as HTMLElement | null, true, 1.12)
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = 'var(--border)'
+                    lift(e.currentTarget, false, { y: -3, scale: 1 })
+                    pop(e.currentTarget.querySelector('[data-icon]') as HTMLElement | null, false, 1.12)
+                  }}
                 >
-                  <div style={{ width: 44, height: 44, borderRadius: 10, background: 'var(--primary)20', border: '1px solid var(--primary)30', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '1rem' }}>
+                  <div data-icon style={{ width: 44, height: 44, borderRadius: 10, background: 'var(--primary)20', border: '1px solid var(--primary)30', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '1rem' }}>
                     {c.icon}
                   </div>
                   <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 700, color: 'var(--text)', marginBottom: '0.3rem' }}>{c.title}</h3>

@@ -2,6 +2,7 @@
 import { Layers, Zap, Code, Box, Network } from 'lucide-react'
 import { principles } from '@/data/portfolio'
 import { AnimateIn } from '../ui/AnimateIn'
+import { lift, pop } from '../ui/motion'
 
 const iconMap: Record<string, React.ReactNode> = {
   layers: <Layers size={22} />,
@@ -34,13 +35,21 @@ export function Architecture() {
                   border: '1px solid var(--border)',
                   borderRadius: 14,
                   height: '100%',
-                  transition: 'border-color 0.25s, transform 0.25s',
+                  transition: 'border-color 0.25s',
                   cursor: 'default',
                 }}
-                onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'var(--primary)'; el.style.transform = 'translateY(-4px)' }}
-                onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'var(--border)'; el.style.transform = 'translateY(0)' }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = 'var(--primary)'
+                  lift(e.currentTarget, true, { y: -4, scale: 1 })
+                  pop(e.currentTarget.querySelector('[data-icon]') as HTMLElement | null, true, 1.12)
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = 'var(--border)'
+                  lift(e.currentTarget, false, { y: -4, scale: 1 })
+                  pop(e.currentTarget.querySelector('[data-icon]') as HTMLElement | null, false, 1.12)
+                }}
               >
-                <div style={{ width: 44, height: 44, borderRadius: 10, background: 'var(--primary)20', border: '1px solid var(--primary)30', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '1rem' }}>
+                <div data-icon style={{ width: 44, height: 44, borderRadius: 10, background: 'var(--primary)20', border: '1px solid var(--primary)30', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: '1rem' }}>
                   {iconMap[p.icon]}
                 </div>
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1rem', fontWeight: 700, color: 'var(--text)', marginBottom: '0.5rem' }}>{p.name}</h3>

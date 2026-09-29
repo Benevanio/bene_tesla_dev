@@ -1,10 +1,9 @@
 'use client'
 
-import { useState } from 'react'
 import { ExternalLink, GitBranch } from 'lucide-react'
 import { projects } from '@/data/portfolio'
 import { AnimateIn } from '../ui/AnimateIn'
-import { motion } from 'framer-motion'
+import { lift } from '../ui/motion'
 
 const typeColors: Record<string, string> = {
   'Back-End': 'var(--sertao)',
@@ -14,8 +13,6 @@ const typeColors: Record<string, string> = {
 }
 
 export function Projects() {
-  const [hovered, setHovered] = useState<number | null>(null)
-
   return (
     <section id="projects" aria-label="Projetos técnicos" style={{ padding: '6rem 1.5rem', background: 'var(--bg-surface)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
@@ -34,22 +31,28 @@ export function Projects() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.25rem' }}>
           {projects.map((proj, i) => (
             <AnimateIn key={proj.name} delay={i * 0.07}>
-              <motion.div
-                onHoverStart={() => setHovered(i)}
-                onHoverEnd={() => setHovered(null)}
+              <div
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = 'var(--primary)'
+                  e.currentTarget.style.boxShadow = '0 0 30px var(--glow)'
+                  lift(e.currentTarget, true, { y: -4, scale: 1.01 })
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = 'var(--border)'
+                  e.currentTarget.style.boxShadow = 'none'
+                  lift(e.currentTarget, false, { y: -4, scale: 1.01 })
+                }}
                 style={{
                   padding: '1.5rem',
                   background: 'var(--bg-elevated)',
-                  border: `1px solid ${hovered === i ? 'var(--primary)' : 'var(--border)'}`,
+                  border: '1px solid var(--border)',
                   borderRadius: 14,
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
                   transition: 'border-color 0.25s, box-shadow 0.25s',
-                  boxShadow: hovered === i ? '0 0 30px var(--glow)' : 'none',
                 }}
               >
-                {/* Header */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
                   <div>
                     <span style={{ fontSize: '0.7rem', color: typeColors[proj.type] ?? 'var(--primary)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em' }}>{proj.type}</span>
@@ -67,7 +70,6 @@ export function Projects() {
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: 700, color: 'var(--text)', marginBottom: '0.6rem' }}>{proj.name}</h3>
                 <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.65, flex: 1, marginBottom: '1rem' }}>{proj.description}</p>
 
-                {/* Tech stack */}
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '1rem' }}>
                   {proj.tech.map(t => (
                     <span key={t} style={{ fontSize: '0.7rem', padding: '0.2rem 0.5rem', background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 5, color: 'var(--text-subtle)', fontWeight: 600 }}>
@@ -83,7 +85,7 @@ export function Projects() {
                 >
                   Ver no GitHub <ExternalLink size={13} />
                 </a>
-              </motion.div>
+              </div>
             </AnimateIn>
           ))}
         </div>

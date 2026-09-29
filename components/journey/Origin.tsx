@@ -1,10 +1,10 @@
 'use client'
-'use client'
 
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import { animate } from 'animejs'
 import { MapPin } from 'lucide-react'
 import { AnimateIn } from '../ui/AnimateIn'
+import { lift, reduceMotion } from '../ui/motion'
 
 const stops = [
   {
@@ -27,6 +27,31 @@ const stops = [
   },
 ]
 
+function Connector({ from, to }: { from: string; to: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (reduceMotion()) { el.style.transform = 'scaleY(1)'; return }
+    el.style.transform = 'scaleY(0)'
+    const io = new IntersectionObserver((entries, obs) => {
+      if (!entries[0].isIntersecting) return
+      obs.unobserve(el)
+      animate(el, { scaleY: [0, 1], duration: 600, delay: 150, ease: 'out(3)' })
+    }, { threshold: 0.5 })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
+  return (
+    <div
+      ref={ref}
+      style={{ width: 1, height: 48, background: `linear-gradient(to bottom, ${from}, ${to})`, transformOrigin: 'top', transform: 'scaleY(0)' }}
+    />
+  )
+}
+
 export function Origin() {
   return (
     <section id="origin" aria-label="Minha origem" style={{ padding: '6rem 1.5rem', maxWidth: 1280, margin: '0 auto' }}>
@@ -43,9 +68,9 @@ export function Origin() {
         {stops.map((stop, i) => (
           <AnimateIn key={stop.place} delay={i * 0.15}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: 520 }}>
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
+              <div
+                onMouseEnter={e => lift(e.currentTarget, true, { y: -2, scale: 1.02 })}
+                onMouseLeave={e => lift(e.currentTarget, false, { y: -2, scale: 1.02 })}
                 style={{
                   background: 'var(--bg-surface)',
                   border: `1px solid ${stop.color}40`,
@@ -64,17 +89,9 @@ export function Origin() {
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: 1.65 }}>{stop.desc}</p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-              {i < stops.length - 1 && (
-                <motion.div
-                  initial={{ scaleY: 0 }}
-                  whileInView={{ scaleY: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  style={{ width: 1, height: 48, background: `linear-gradient(to bottom, ${stop.color}, ${stops[i + 1].color})`, transformOrigin: 'top', margin: '0' }}
-                />
-              )}
+              {i < stops.length - 1 && <Connector from={stop.color} to={stops[i + 1].color} />}
             </div>
           </AnimateIn>
         ))}

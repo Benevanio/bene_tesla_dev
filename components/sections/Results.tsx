@@ -1,5 +1,6 @@
 'use client'
 import { AnimateIn } from '../ui/AnimateIn'
+import { CountUp } from '../ui/CountUp'
 import { metrics } from '@/data/portfolio'
 
 export function Results() {
@@ -30,7 +31,7 @@ export function Results() {
                 onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'var(--primary)'; el.style.boxShadow = '0 0 30px var(--glow)' }}
                 onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.borderColor = 'var(--border)'; el.style.boxShadow = 'none' }}
               >
-                <p style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 800, color: 'var(--primary)', lineHeight: 1, marginBottom: '0.5rem' }}>{m.value}</p>
+                <p style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 800, color: 'var(--primary)', lineHeight: 1, marginBottom: '0.5rem' }}><CountUp value={m.value} /></p>
                 <p style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text)', marginBottom: '0.4rem' }}>{m.label}</p>
                 <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>{m.detail}</p>
               </div>

@@ -21,6 +21,7 @@
   --sertao: #c8893e;
   --sertao-light: #e8a95e;
   --rio: #2a5f7a;
+  --hero-overlay: linear-gradient(135deg, rgba(10, 15, 26, 0.9) 0%, rgba(10, 15, 26, 0.58) 55%, rgba(10, 15, 26, 0.28) 100%);
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Public Sans', sans-serif;
 }
@@ -47,6 +48,7 @@
   --sertao: #8a6338;
   --sertao-light: #ad875d;
   --rio: #315d6d;
+  --hero-overlay: linear-gradient(135deg, rgba(244, 241, 235, 0.92) 0%, rgba(244, 241, 235, 0.62) 55%, rgba(244, 241, 235, 0.3) 100%);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
