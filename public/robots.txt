@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bene-tesla-dev.vercel.app/sitemap.xml
