@@ -9,6 +9,7 @@ const links = [
   { href: '#results', label: 'Resultados' },
   { href: '#career', label: 'Trajetória' },
   { href: '#architecture', label: 'Arquitetura' },
+  { href: '#talks', label: 'Palestras' },
   { href: '#projects', label: 'Projetos' },
   { href: '#contact', label: 'Contato' },
 ]

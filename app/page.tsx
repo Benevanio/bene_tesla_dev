@@ -6,6 +6,7 @@ import { Origin } from '@/components/journey/Origin'
 import { Timeline } from '@/components/timeline/Timeline'
 import { Architecture } from '@/components/sections/Architecture'
 import { Technologies } from '@/components/sections/Technologies'
+import { Talks } from '@/components/sections/Talks'
 import { Projects } from '@/components/projects/Projects'
 import { Contact } from '@/components/sections/Contact'
 import { Footer } from '@/components/ui/Footer'
@@ -22,6 +23,7 @@ export default function Home() {
         <Timeline />
         <Architecture />
         <Technologies />
+        <Talks />
         <Projects />
         <Contact />
       </main>

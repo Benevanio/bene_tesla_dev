@@ -161,6 +161,33 @@ export const projects = [
   },
 ]
 
+export const talks = [
+  {
+    event: 'GDG Americana',
+    location: 'Americana, SP',
+    title: 'O Padrão Gringo: Introdução ao MuleSoft e construção de APIs com Anypoint Platform',
+    description: 'Uma introdução ao MuleSoft e à construção de APIs usando a Anypoint Platform.',
+    link: 'https://www.youtube.com/live/arIdrIaVpX0?si=gd2gZfRicVlN4GBA',
+    platform: 'YouTube',
+  },
+  {
+    event: 'GDG Arapiraca · DevFest Agreste 2025',
+    location: 'Arapiraca, AL',
+    title: 'Batch Processing no MuleSoft: Estratégias e Boas Práticas',
+    description: 'Estratégias para configurar e otimizar processamento em lote, tratar erros e criar integrações escaláveis e confiáveis.',
+    link: 'https://www.instagram.com/p/DP621U1jd2g/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==',
+    platform: 'Instagram',
+  },
+  {
+    event: 'GDG Aracaju',
+    location: 'Aracaju, SE',
+    title: 'APIs com MuleSoft: Da Teoria à Prática',
+    description: 'Uma palestra prática sobre APIs escaláveis e reutilizáveis com MuleSoft, incluindo integrações no Anypoint Studio.',
+    link: 'https://www.instagram.com/p/DKM70tyOx2G/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==',
+    platform: 'Instagram',
+  },
+]
+
 export const principles = [
   { icon: 'layers', name: 'Domain-Driven Design', desc: 'Modelagem de domínio alinhada ao negócio e linguagem ubíqua.' },
   { icon: 'zap', name: 'Event-Driven Architecture', desc: 'Integrações assíncronas para resiliência e desacoplamento.' },
