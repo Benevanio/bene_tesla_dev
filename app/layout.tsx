@@ -5,7 +5,7 @@ import './globals.css'
 const outfit = Outfit({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700', '800'], display: 'swap', variable: '--font-outfit' })
 const publicSans = Public_Sans({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'], display: 'swap', variable: '--font-public-sans' })
 
-const SITE_URL = 'https://bene-tesla-dev.vercel.app'
+const SITE_URL = 'https://bene-tesla-dev.com.br'
 const TITLE = 'Benevanio Santos | Engenheiro de Software Full Stack & Desktop'
 const DESCRIPTION = 'Engenheiro de Software Full Stack & Desktop. De Pão de Açúcar, AL para a engenharia de sistemas modernos. Especialista em Rust, Tauri, Node.js, Java, React, MuleSoft.'
 
@@ -30,7 +30,6 @@ export const metadata: Metadata = {
   keywords: ['Engenheiro de Software', 'Full Stack', 'Rust', 'Tauri', 'Node.js', 'Java', 'React', 'MuleSoft', 'TypeScript', 'Benevanio Santos'],
   authors: [{ name: 'Benevanio Santos', url: SITE_URL + '/' }],
   robots: { index: true, follow: true },
-  icons: { icon: '/favicon.ico' },
   verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
 }
 

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -36,8 +37,10 @@ export function Nav() {
       role="banner"
     >
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 64 }}>
-        <a href="#intro" aria-label="Início" style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.35rem', color: 'var(--primary)', letterSpacing: '-0.03em', textDecoration: 'none' }}>
-          BS
+        <a href="#intro" aria-label="Benevanio Santos — Início" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
+          <span style={{ display: 'block', width: 44, height: 44, borderRadius: '50%', overflow: 'hidden', background: '#05080f', border: '1px solid var(--border-light)' }}>
+            <Image src="/logo.png" alt="" width={44} height={44} priority sizes="44px" style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.3)' }} />
+          </span>
         </a>
 
         <nav aria-label="Principal" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
