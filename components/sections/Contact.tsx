@@ -29,7 +29,7 @@ export function Contact() {
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '3rem' }}>
             <AnimateIn delay={0.1}>
               <a href={personal.calendar} target="_blank" rel="noopener noreferrer"
-                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'var(--primary)', color: '#0a0f1a', padding: '0.8rem 1.5rem', borderRadius: 10, fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', fontFamily: 'var(--font-heading)' }}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'var(--primary)', color: 'var(--on-primary)', padding: '0.8rem 1.5rem', borderRadius: 10, fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', fontFamily: 'var(--font-heading)' }}
                 onMouseEnter={e => { e.currentTarget.style.opacity = '0.9'; lift(e.currentTarget, true, { y: -2, scale: 1.02 }) }}
                 onMouseLeave={e => { e.currentTarget.style.opacity = '1'; lift(e.currentTarget, false, { y: -2, scale: 1.02 }) }}
               >

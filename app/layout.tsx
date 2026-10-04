@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
+import { Outfit, Public_Sans } from 'next/font/google'
 import './globals.css'
+
+const outfit = Outfit({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700', '800'], display: 'swap', variable: '--font-outfit' })
+const publicSans = Public_Sans({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'], display: 'swap', variable: '--font-public-sans' })
 
 const SITE_URL = 'https://bene-tesla-dev.vercel.app'
 const TITLE = 'Benevanio Santos | Engenheiro de Software Full Stack & Desktop'
@@ -32,7 +36,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" data-theme="dark" suppressHydrationWarning>
+    <html lang="pt-BR" data-theme="dark" className={`${outfit.variable} ${publicSans.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{
           __html: `(()=>{try{const t=localStorage.getItem('theme');const s=window.matchMedia?.('(prefers-color-scheme: dark)').matches;document.documentElement.setAttribute('data-theme',t||(s?'dark':'light'));}catch(e){document.documentElement.setAttribute('data-theme','dark');}})()`
