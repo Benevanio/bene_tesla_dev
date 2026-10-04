@@ -169,9 +169,6 @@ Todo o texto e os dados exibidos ficam em `data/portfolio.ts` (dados pessoais, m
 
 ## Segurança e Rate Limiting
 
-**Análise (estado atual):** o projeto não possui `/api/*`, Route Handlers, Server Actions, formulários, `middleware`/`proxy` nem `vercel.json`. O contato é feito apenas por links (e-mail, LinkedIn, GitHub, WhatsApp, Google Calendar). Todas as páginas são estáticas ou geradas em build (incluindo as imagens `opengraph-image` e `twitter-image`).
-
-**Decisão:** não foi implementado rate limiting em código. Não há endpoint dinâmico a proteger, e um limitador global adicionaria latência e custo à página pública sem benefício. Também não foram adicionados Redis, Upstash ou qualquer serviço externo. O conteúdo estático é servido pelo CDN da Vercel, que absorve o tráfego e já oferece mitigação de DDoS na plataforma.
 
 **Headers de segurança** (definidos em `next.config.ts`, sem custo de execução por requisição):
 
@@ -184,15 +181,3 @@ Todo o texto e os dados exibidos ficam em `data/portfolio.ts` (dados pessoais, m
 | `Content-Security-Policy` | `frame-ancestors 'self'; base-uri 'self'; object-src 'none'; form-action 'self'` |
 
 A CSP é propositalmente parcial: não restringe `script-src` nem `style-src`, porque o Next.js injeta scripts e estilos inline (inclusive o JSON-LD) e uma política estrita exigiria nonces, o que tornaria as páginas dinâmicas e pioraria o desempenho.
-
-**Quando adicionar uma API ou formulário:**
-
-- Leitura (GET): ~120 req/min por IP.
-- Escrita (POST): ~10 req/min por IP.
-- Ação sensível (e-mail, serviço externo): ~5 req/min por IP.
-- Responder `429 Too Many Requests` com `Retry-After` e corpo `{ "error": "Too many requests", "message": "Please try again later." }`.
-- Aplicar o limite só nessas rotas, com uma função única `getClientIp()` baseada no header `x-vercel-forwarded-for` (que a Vercel define e não aceita do cliente), e não na página principal.
-- Como memória local não é confiável em serverless, usar então o Vercel WAF Rate Limiting (regra no painel, sem código) ou, se necessário, um armazenamento compartilhado como Upstash Redis. Isso não está implementado hoje.
-- Não bloquear crawlers por User-Agent, para não afetar a indexação.
-
-**Limitações:** não há limite por IP em código e não há logging de rate limit, porque não existem endpoints. Regras de WAF/firewall, se desejadas, são configuradas no painel da Vercel.
