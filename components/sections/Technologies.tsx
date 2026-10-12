@@ -5,6 +5,20 @@ import { AnimateIn } from '../ui/AnimateIn'
 import { TechIcon } from '../ui/TechIcon'
 import { lift, pop } from '../ui/motion'
 
+const MulesoftServiceNowIcons = [
+  {
+    name: 'MuleSoft',
+    url: 'https://www.mulesoft.com/',  
+    icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbyt8qieLTLQa0jx5EdKa00s3lzCKME__tkUV9IiOeJg&s=10',
+    
+  },
+  {
+    name: 'ServiceNow',
+    url: 'https://www.servicenow.com/',
+    icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFSubUV9bE7wJdMfKFSR8ede7HNgZpoYRdc8aJeb1aWg&s=10',
+  },
+]
+
 const categoryColors: Record<string, string> = {
   'Desktop': 'var(--sertao)',
   'Back-End': 'var(--primary)',
@@ -24,7 +38,9 @@ export function Technologies() {
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <AnimateIn>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <p style={{ fontSize: '0.8rem', color: 'var(--primary)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: '0.75rem' }}>Stack Técnica</p>
+            <p style={{ fontSize: '0.8rem', color: 'var(--primary)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: '0.75rem' }}>
+              Stack Técnica
+            </p>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--text)' }}>
               Tecnologias que domino
             </h2>
@@ -34,6 +50,7 @@ export function Technologies() {
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
           {techStack.map((t, i) => {
             const color = categoryColors[t.category] ?? 'var(--primary)'
+
             return (
               <AnimateIn key={t.name} delay={i * 0.03}>
                 <div
@@ -66,12 +83,57 @@ export function Technologies() {
                   <span data-icon style={{ display: 'flex', color: 'var(--text-muted)', transition: 'color 0.2s' }}>
                     <TechIcon slug={t.slug} size={18} />
                   </span>
-                  <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text)' }}>{t.name}</span>
-                  <span style={{ fontSize: '0.7rem', color: 'var(--text-subtle)' }}>{t.category}</span>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text)' }}>
+                    {t.name}
+                  </span>
+                  <span style={{ fontSize: '0.7rem', color: 'var(--text-subtle)' }}>
+                    {t.category}
+                  </span>
                 </div>
               </AnimateIn>
             )
           })}
+        </div>
+
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center', marginTop: '1.5rem' }}>
+          {MulesoftServiceNowIcons.map((item, i) => (
+            <AnimateIn key={item.name} delay={i * 0.03}>
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Conheça o ${item.name}`}
+                style={{
+                  padding: '0.6rem 1.1rem',
+                  background: 'var(--bg-surface)',
+                  border: '1px solid var(--rio)30',
+                  borderRadius: 8,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.55rem',
+                  cursor: 'pointer',
+                  textDecoration: 'none',
+                  transition: 'border-color 0.2s',
+                }}
+              >
+                <span style={{ display: 'flex', alignItems: 'center' }}>
+                  <img
+                    src={item.icon}
+                    alt=""
+                    width={24}
+                    height={24}
+                    style={{ objectFit: 'contain' }}
+                  />
+                </span>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text)' }}>
+                  {item.name}
+                </span>
+                <span style={{ fontSize: '0.7rem', color: 'var(--text-subtle)' }}>
+                  Integração
+                </span>
+              </a>
+            </AnimateIn>
+          ))}
         </div>
       </div>
     </section>
