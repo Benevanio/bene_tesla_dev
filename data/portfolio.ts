@@ -18,38 +18,44 @@ export const personal = {
 }
 
 export const techStack = [
+  { name: 'MuleSoft', category: 'Integração', slug: 'mulesoft' },
   { name: 'DataWeave', category: 'Integração', slug: 'dataweave' },
+  { name: 'API-Led Connectivity', category: 'Integração', slug: '' },
   { name: 'ActiveMQ', category: 'Integração', slug: 'apacheactivemq' },
+  { name: 'GraphQL', category: 'Integração', slug: 'graphql' },
   { name: 'Node.js', category: 'Back-End', slug: 'nodedotjs' },
   { name: 'TypeScript', category: 'Linguagem', slug: 'typescript' },
   { name: 'Java', category: 'Back-End', slug: 'openjdk' },
-  { name: 'Rust', category: 'Desktop', slug: 'rust' },
-  { name: 'HTML5', category: 'Front-End', slug: 'html5' },
-  { name: 'CSS3', category: 'Front-End', slug: 'css' },
   { name: 'Spring Boot', category: 'Back-End', slug: 'springboot' },
   { name: 'Express', category: 'Back-End', slug: 'express' },
   { name: 'NestJS', category: 'Back-End', slug: 'nestjs' },
   { name: 'React', category: 'Front-End', slug: 'react' },
-  { name: 'Tailwind CSS', category: 'Front-End', slug: 'tailwindcss' },
+  { name: 'React Native', category: 'Front-End', slug: '' },
   { name: 'Tauri', category: 'Desktop', slug: 'tauri' },
+  { name: 'Rust', category: 'Desktop', slug: 'rust' },
+  { name: 'Tailwind CSS', category: 'Front-End', slug: 'tailwindcss' },
+  { name: 'HTML5', category: 'Front-End', slug: 'html5' },
+  { name: 'CSS3', category: 'Front-End', slug: 'css' },
   { name: 'PostgreSQL', category: 'Banco', slug: 'postgresql' },
   { name: 'MongoDB', category: 'Banco', slug: 'mongodb' },
+  { name: 'Redis', category: 'Banco', slug: '' },
   { name: 'Knex.js', category: 'Banco', slug: 'knexdotjs' },
-  { name: 'GraphQL', category: 'Integração', slug: 'graphql' },
+  { name: 'SQLite', category: 'Banco', slug: '' },
   { name: 'Kibana', category: 'Observabilidade', slug: 'kibana' },
   { name: 'Elasticsearch', category: 'Observabilidade', slug: 'elasticsearch' },
   { name: 'Logstash', category: 'Observabilidade', slug: 'logstash' },
   { name: 'Splunk', category: 'Observabilidade', slug: 'splunk' },
   { name: 'Dynatrace', category: 'Observabilidade', slug: 'dynatrace' },
+  { name: 'ServiceNow', category: 'DevOps', slug: '' },
   { name: 'Docker', category: 'DevOps', slug: 'docker' },
   { name: 'Kubernetes', category: 'DevOps', slug: 'kubernetes' },
-  { name: 'Git', category: 'DevOps', slug: 'git' },
   { name: 'Jenkins', category: 'DevOps', slug: 'jenkins' },
+  { name: 'Git', category: 'DevOps', slug: 'git' },
   { name: 'Jest', category: 'Testes', slug: 'jest' },
-  { name: 'SonarQube', category: 'Qualidade', slug: 'sonarqubeserver' },
-  { name: 'Postman', category: 'Testes', slug: 'postman' },
   { name: 'JUnit', category: 'Testes', slug: 'junit5' },
   { name: 'k6', category: 'Testes', slug: 'k6' },
+  { name: 'Postman', category: 'Testes', slug: 'postman' },
+  { name: 'SonarQube', category: 'Qualidade', slug: 'sonarqubeserver' },
 ]
 
 export const metrics = [
@@ -198,11 +204,14 @@ export const principles = [
   { icon: 'network', name: 'API-Led Connectivity', desc: 'Camadas Experience, Process e System para integrações corporativas.' },
 ]
 
+// Currículos (PT-BR) — pasta única no Google Drive com as 6 trilhas.
+const CV_FOLDER = 'https://drive.google.com/drive/folders/1HltmjA_LRST69W7VgUNr1CKd8NC_kAJz?usp=sharing'
+
 export const cvLinks = [
-  { title: 'Back-End Java', desc: 'Java, Spring e arquitetura orientada a serviços.', url: 'https://drive.google.com/drive/folders/17hLBQxichMCgJ6w-TmcwApQ0WLBj6_-U?usp=sharing' },
-  { title: 'Back-End Node.js', desc: 'Node.js 22, TypeScript e APIs escaláveis.', url: 'https://drive.google.com/drive/folders/1Biehfj6UQfVIIVd0p2Hv26uA2Dcof2_w?usp=sharing' },
-  { title: 'MuleSoft Integrations', desc: 'API-Led Connectivity e DataWeave.', url: 'https://drive.google.com/drive/folders/1c5NRTrCOu9nyW_aFtWgFeDbhdOTA1Grd?usp=sharing' },
-  { title: 'Node.js + React', desc: 'Full-Stack com Node.js e React.', url: 'https://drive.google.com/drive/folders/1elY2dmdPJ3oVvyzVFIvACW6gDDD49Df9?usp=sharing' },
-  { title: 'Front-End React', desc: 'React, componentização e interfaces modernas.', url: 'https://drive.google.com/drive/folders/1L_p60TW3SOc1sz45_PD_a6ZgPIttdWH5?usp=sharing' },
-  { title: 'Suporte', desc: 'Suporte técnico e atendimento especializado.', url: 'https://drive.google.com/drive/folders/1JHUZ3xxt2qpObMn4AJ3308We6DoLX9eA?usp=sharing' },
+  { title: 'Full Stack — React & Node.js', desc: 'React, Node.js, TypeScript e APIs REST.', url: CV_FOLDER },
+  { title: 'Node.js Backend', desc: 'Node.js, TypeScript, Clean Architecture, PostgreSQL.', url: CV_FOLDER },
+  { title: 'MuleSoft & Integrações', desc: 'Mule 4, DataWeave e API-Led Connectivity.', url: CV_FOLDER },
+  { title: 'Java Backend', desc: 'Java 6/7/8, APIs e sustentação de sistemas.', url: CV_FOLDER },
+  { title: 'Mobile & Desktop', desc: 'React Native, Expo, Tauri e operação offline.', url: CV_FOLDER },
+  { title: 'ITSM & Application Support', desc: 'ServiceNow, sustentação e observabilidade.', url: CV_FOLDER },
 ]
