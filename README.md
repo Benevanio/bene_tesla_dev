@@ -1,6 +1,6 @@
 # Portfólio — Benevanio Santos
 
-Site de portfólio profissional de **Benevanio Santos**, Engenheiro de Software Full Stack & Desktop. Apresenta, em uma narrativa visual única, a trajetória profissional, a experiência corporativa, os princípios de arquitetura, a stack técnica, os projetos e as formas de contato.
+Site de portfólio profissional de **Benevanio Santos**, Engenheiro de Software · Backend & Integrações (Full Stack e Desktop). Apresenta, em uma narrativa visual única, a trajetória profissional, a experiência corporativa, os princípios de arquitetura, a stack técnica, os projetos e as formas de contato.
 
 A experiência foi pensada para o visitante entender rapidamente a sequência:
 
@@ -162,7 +162,7 @@ Todo o texto e os dados exibidos ficam em `data/portfolio.ts` (dados pessoais, m
 
 ## Autor
 
-**Benevanio Santos** — Engenheiro de Software Full Stack & Desktop
+**Benevanio Santos** — Engenheiro de Software · Backend & Integrações (Full Stack e Desktop)
 
 - LinkedIn: https://linkedin.com/in/bene-tesla
 - GitHub: https://github.com/Benevanio

@@ -1,9 +1,9 @@
 export const personal = {
   name: 'Benevanio Santos',
   initials: 'BS',
-  role: 'Engenheiro de Software Full Stack & Desktop',
-  tagline: 'Desenvolvimento Full Stack e Desktop com foco em performance nativa e arquitetura moderna.',
-  bio: 'Engenheiro de Software com experiência em ecossistemas corporativos e produtos modernos, com atuação atual em desenvolvimento Full Stack e Desktop com foco em performance nativa.',
+  role: 'Engenheiro de Software · Backend & Integrações',
+  tagline: 'APIs, integrações corporativas (MuleSoft) e sistemas distribuídos — com atuação Full Stack e Desktop.',
+  bio: 'Engenheiro de Software focado em backend e integrações corporativas, construindo APIs e sistemas distribuídos que conectam plataformas de grande porte — com atuação também Full Stack (React) e Desktop (Rust/Tauri).',
   bio2: 'Formação em Engenharia de Software (Anhanguera) e pós-graduação em Arquitetura de Software Distribuído na PUC Minas (em andamento).',
   email: 'benevaniosantos930@gmail.com',
   linkedin: 'https://linkedin.com/in/bene-tesla',
@@ -18,6 +18,8 @@ export const personal = {
 }
 
 export const techStack = [
+  { name: 'DataWeave', category: 'Integração', slug: 'dataweave' },
+  { name: 'ActiveMQ', category: 'Integração', slug: 'apacheactivemq' },
   { name: 'Node.js', category: 'Back-End', slug: 'nodedotjs' },
   { name: 'TypeScript', category: 'Linguagem', slug: 'typescript' },
   { name: 'Java', category: 'Back-End', slug: 'openjdk' },
@@ -64,8 +66,8 @@ export const timeline = [
     period: 'abr/2026 — Atual',
     role: 'Engenheiro de Software Full Stack',
     company: 'Geodigitus (via Frannar)',
-    description: 'Desenvolvimento de aplicações Desktop modernas com Rust e Tauri, integradas a stacks Full Stack com Node.js 22, React, TypeScript, Docker e Jenkins, com foco em performance nativa e arquitetura escalável.',
-    tech: ['Rust', 'Tauri', 'Node.js 22', 'React', 'TypeScript', 'Docker', 'Jenkins'],
+    description: 'APIs REST em Node.js + TypeScript com Clean Architecture, interfaces em React e aplicações desktop com Tauri e Rust. Qualidade com Jest, Cypress e k6, CI/CD (Jenkins) e observabilidade com Dynatrace e Kibana.',
+    tech: ['Node.js 22', 'TypeScript', 'React', 'Rust', 'Tauri', 'Clean Architecture', 'Docker', 'Jenkins'],
     type: 'job',
   },
   {
@@ -79,9 +81,9 @@ export const timeline = [
   {
     period: 'jun/2023 — abr/2026',
     role: 'Engenheiro de Software',
-    company: 'Sysmap Solutions (Natura & Avon)',
-    description: 'Desenvolvimento de 25+ integrações MuleSoft e APIs Java e Node.js com foco em escalabilidade, governança e performance. Observabilidade de 100+ sistemas em ambiente corporativo.',
-    tech: ['MuleSoft', 'Java', 'Node.js', 'API-Led', 'DataWeave'],
+    company: 'Sysmap Solutions (clientes Natura & Avon)',
+    description: '25+ integrações MuleSoft (Mule 4, DataWeave, API-Led) em produção, APIs em Java/Spring Boot e portais em React, com mensageria (ActiveMQ) e observabilidade de 100+ sistemas (Kibana/ELK, Dynatrace).',
+    tech: ['MuleSoft', 'Java', 'Spring Boot', 'Node.js', 'DataWeave', 'ActiveMQ'],
     type: 'job',
   },
   {

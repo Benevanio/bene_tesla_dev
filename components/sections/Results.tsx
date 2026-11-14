@@ -11,7 +11,7 @@ export function Results() {
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p style={{ fontSize: '0.8rem', color: 'var(--primary)', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, marginBottom: '0.75rem' }}>Resultados Chave</p>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.75rem, 4vw, 3rem)', fontWeight: 800, letterSpacing: '-0.02em', color: 'var(--text)' }}>
-              Impacto mensurável em<br />operações digitais da Natura
+              Impacto mensurável em<br />integrações para Natura e Avon
             </h2>
           </div>
         </AnimateIn>

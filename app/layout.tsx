@@ -6,8 +6,8 @@ const outfit = Outfit({ subsets: ['latin'], weight: ['300', '400', '500', '600',
 const publicSans = Public_Sans({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'], display: 'swap', variable: '--font-public-sans' })
 
 const SITE_URL = 'https://bene-tesla-dev.com.br'
-const TITLE = 'Benevanio Santos | Engenheiro de Software Full Stack & Desktop'
-const DESCRIPTION = 'Engenheiro de Software Full Stack & Desktop. De Pão de Açúcar, AL para a engenharia de sistemas modernos. Especialista em Rust, Tauri, Node.js, Java, React, MuleSoft.'
+const TITLE = 'Benevanio Santos | Engenheiro de Software · Backend & Integrações'
+const DESCRIPTION = 'Engenheiro de Software focado em backend e integrações corporativas: MuleSoft, Java, Spring Boot, Node.js e TypeScript — sistemas distribuídos, mensageria e observabilidade, com atuação Full Stack (React) e Desktop (Rust/Tauri).'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
   openGraph: {
     title: TITLE,
-    description: 'Uma trajetória que começa no Nordeste e chega à tecnologia. Engenharia de software com Rust, Node.js, Java, React e MuleSoft.',
+    description: 'Backend e integrações corporativas com MuleSoft, Java/Spring Boot, Node.js e TypeScript — sistemas distribuídos, mensageria e observabilidade. Full Stack (React) e Desktop (Rust/Tauri).',
     url: SITE_URL + '/',
     siteName: 'Benevanio Santos',
     type: 'website',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
   },
-  keywords: ['Engenheiro de Software', 'Full Stack', 'Rust', 'Tauri', 'Node.js', 'Java', 'React', 'MuleSoft', 'TypeScript', 'Benevanio Santos'],
+  keywords: ['Engenheiro de Software', 'Software Engineer', 'Backend', 'Integrações Corporativas', 'Enterprise Integration', 'MuleSoft', 'DataWeave', 'API-Led Connectivity', 'Java', 'Spring Boot', 'Node.js', 'TypeScript', 'NestJS', 'Sistemas Distribuídos', 'Mensageria', 'ActiveMQ', 'Observabilidade', 'React', 'Rust', 'Tauri', 'Full Stack', 'Benevanio Santos'],
   authors: [{ name: 'Benevanio Santos', url: SITE_URL + '/' }],
   robots: { index: true, follow: true },
   verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
