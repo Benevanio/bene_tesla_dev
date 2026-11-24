@@ -3,6 +3,15 @@
    Sistema visual derivado do design pen.dev (Desktop 1440 / Mobile 390)
    ========================================================================== */
 
+/* Reset global */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --paper: #F3E9D2;
   --paper-2: #E8D8B8;
@@ -34,7 +43,6 @@
   --maxw: 1440px;
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 80px; }
 
@@ -136,43 +144,64 @@ img { display: block; max-width: 100%; }
 
 /* ---------- Header ---------- */
 
-.site-header { position: sticky; top: 0; z-index: 100; background: var(--paper); }
+.site-header { position: sticky; top: 0; z-index: 100; background: var(--paper); transition: box-shadow .25s ease; }
+.site-header.is-scrolled { box-shadow: 0 6px 0 -4px rgba(36, 32, 25, .08); }
 .site-header__inner {
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
   padding-block: 20px; border-bottom: 1.5px solid var(--ink);
+  transition: padding .25s ease;
 }
+.site-header.is-scrolled .site-header__inner { padding-block: 12px; }
 .marca { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; white-space: nowrap; }
 .marca__mono {
   display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: var(--ink);
   color: var(--sertao); font-family: var(--font-display); font-style: italic; font-weight: 800; font-size: 22px; line-height: 1;
+  transition: transform .25s ease, background-color .25s ease;
 }
+.marca:hover .marca__mono { transform: rotate(-6deg); background: var(--terracota); color: var(--paper); }
 .marca__txt { display: flex; flex-direction: column; gap: 2px; }
 .marca__nome { font-family: var(--font-display); font-size: 18px; font-weight: 700; line-height: 1.2; }
 .marca__sub { font-family: var(--font-mono); font-size: 10px; letter-spacing: .5px; color: var(--ink-soft); }
 
-.nav-desk { display: flex; align-items: center; gap: 26px; }
+.nav-desk { display: flex; align-items: center; gap: 28px; }
 .nav-item {
-  display: inline-flex; align-items: center; gap: 6px; padding-bottom: 6px; margin-bottom: -8px;
-  border-bottom: 2px solid transparent; transition: border-color .2s ease;
+  position: relative; display: inline-flex; align-items: center; gap: 6px; padding-block: 8px;
+  white-space: nowrap;
+}
+.nav-item::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--terracota);
+  transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
 }
 .nav-item__num { font-family: var(--font-mono); font-size: 11px; color: var(--terracota); }
-.nav-item__label { font-size: 14px; font-weight: 500; color: var(--ink); }
-.nav-item:hover, .nav-item[aria-current='true'] { border-bottom-color: var(--terracota); }
+.nav-item__label { font-size: 14px; font-weight: 500; color: var(--ink); transition: color .2s ease; }
+.nav-item:hover::after, .nav-item[aria-current]::after { transform: scaleX(1); }
+.nav-item[aria-current] .nav-item__label { font-weight: 600; }
 
-.cta-cv {
-  display: inline-flex; align-items: center; gap: 12px; padding: 10px 16px;
-  box-shadow: inset 0 0 0 1.5px var(--ink); font-size: 14px; font-weight: 600;
-  transition: background-color .2s ease, color .2s ease;
+.menu-btn {
+  display: none; width: 44px; height: 44px; flex-shrink: 0; align-items: center; justify-content: center;
+  box-shadow: inset 0 0 0 1.5px var(--ink); transition: background-color .2s ease, color .2s ease;
 }
-.cta-cv:hover { background: var(--ink); color: var(--paper); }
+.menu-btn:hover, .is-open .menu-btn { background: var(--ink); color: var(--paper); }
 
-.menu-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; box-shadow: inset 0 0 0 1.5px var(--ink); }
-
-.nav-mobile { border-bottom: 1.5px solid var(--ink); background: var(--paper); padding: 8px 20px 20px; }
-.nav-mobile ul { display: flex; flex-direction: column; }
-.nav-mobile a { display: flex; align-items: baseline; gap: 10px; padding: 14px 0; border-bottom: 1px solid rgba(36, 32, 25, .15); }
-.nav-mobile a .nav-item__label { font-family: var(--font-display); font-size: 22px; font-weight: 600; }
-.nav-mobile .cta-cv { margin-top: 16px; width: 100%; justify-content: center; padding: 14px 16px; }
+.nav-mobile {
+  position: absolute; top: 100%; left: 0; right: 0; height: calc(100dvh - 100%);
+  overflow-y: auto; background: var(--paper); border-bottom: 1.5px solid var(--ink);
+}
+.nav-mobile[hidden] { display: none; }
+.nav-mobile__inner { display: flex; flex-direction: column; gap: 20px; min-height: 100%; padding-top: 28px; padding-bottom: 32px; }
+.nav-mobile__kicker { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 2px; color: var(--terracota); }
+.nav-mobile__lista { display: flex; flex-direction: column; border-top: 1.5px solid var(--ink); }
+.nav-mobile__lista li { animation: menu-in .35s ease both; animation-delay: calc(var(--i) * 35ms); }
+.nav-mobile__lista a {
+  display: flex; align-items: baseline; gap: 14px; padding: 14px 0;
+  border-bottom: 1px solid rgba(36, 32, 25, .18); transition: padding-left .2s ease, color .2s ease;
+}
+.nav-mobile__lista .nav-item__num { width: 40px; flex-shrink: 0; font-size: 12px; }
+.nav-mobile__label { font-family: var(--font-display); font-size: 28px; font-weight: 600; line-height: 1.15; }
+.nav-mobile__lista a:hover, .nav-mobile__lista a[aria-current] { padding-left: 8px; color: var(--terracota); }
+.nav-mobile__rodape { display: flex; flex-wrap: wrap; gap: 20px; margin-top: auto; padding-top: 16px; }
+.nav-mobile__rodape a { display: inline-flex; align-items: center; gap: 4px; padding-bottom: 3px; border-bottom: 1.5px solid var(--ink); font-family: var(--font-mono); font-size: 13px; font-weight: 600; }
+@keyframes menu-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
 /* ---------- Hero ---------- */
 
@@ -447,8 +476,13 @@ img { display: block; max-width: 100%; }
   .canais { width: 420px; }
 }
 
-@media (max-width: 1200px) {
-  .nav-desk, .site-header .cta-cv--desk { display: none; }
+@media (max-width: 1280px) and (min-width: 1101px) {
+  .nav-desk { gap: 20px; }
+  .marca__sub { display: none; }
+}
+
+@media (max-width: 1100px) {
+  .nav-desk-wrap { display: none; }
   .menu-btn { display: inline-flex; }
 }
 

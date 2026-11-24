@@ -16,6 +16,8 @@ const securityHeaders = [
 ]
 
 const nextConfig: NextConfig = {
+  // Impede o `next dev` de recriar AGENTS.md / CLAUDE.md na raiz do projeto
+  agentRules: false,
   experimental: {
     optimizePackageImports: ['lucide-react', 'animejs'],
     inlineCss: true,
