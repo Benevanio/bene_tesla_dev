@@ -1,15 +1,10 @@
-import { Hero } from '@/components/hero/Hero'
-import { Origin } from '@/components/journey/Origin'
-import { Projects } from '@/components/projects/Projects'
-import { About } from '@/components/sections/About'
-import { Architecture } from '@/components/sections/Architecture'
-import { Contact } from '@/components/sections/Contact'
-import { Results } from '@/components/sections/Results'
-import { Talks } from '@/components/sections/Talks'
-import { Technologies } from '@/components/sections/Technologies'
-import { Timeline } from '@/components/timeline/Timeline'
-import { Footer } from '@/components/ui/Footer'
-import { Nav } from '@/components/ui/Nav'
+import { CvController } from '@/components/cordel/Cv'
+import { Header } from '@/components/cordel/Header'
+import { Hero } from '@/components/cordel/Hero'
+import { Barrado } from '@/components/cordel/primitives'
+import { Origem, Resultados, Sobre } from '@/components/cordel/Sections1'
+import { Arquitetura, Stack, Trajetoria } from '@/components/cordel/Sections2'
+import { Contato, Palestras, Projetos } from '@/components/cordel/Sections3'
 import { personal } from '@/data/portfolio'
 
 const SITE_URL = 'https://bene-tesla-dev.vercel.app/'
@@ -43,20 +38,23 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <Nav />
+      <Header />
       <main id="main">
         <Hero />
-        <About />
-        <Results />
-        <Origin />
-        <Timeline />
-        <Architecture />
-        <Technologies />
-        <Talks />
-        <Projects />
-        <Contact />
+        <Sobre />
+        <Resultados />
+        <Origem />
+        <Trajetoria />
+        <Barrado bg="var(--white)" tall />
+        <Arquitetura />
+        <Stack />
+        <Barrado bg="var(--ink)" tall />
+        <Palestras />
+        <Projetos />
       </main>
-      <Footer />
+      <Contato />
+      <Barrado bg="var(--ink)" />
+      <CvController />
     </>
   )
 }

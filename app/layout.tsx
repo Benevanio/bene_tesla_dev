@@ -1,9 +1,12 @@
-import type { Metadata } from 'next'
-import { Outfit, Public_Sans } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-const outfit = Outfit({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700', '800'], display: 'swap', variable: '--font-outfit' })
-const publicSans = Public_Sans({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'], display: 'swap', variable: '--font-public-sans' })
+const fraunces = Fraunces({ subsets: ['latin'], style: ['normal', 'italic'], display: 'swap', variable: '--font-fraunces' })
+const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' })
+const jetbrains = JetBrains_Mono({ subsets: ['latin'], display: 'swap', variable: '--font-jetbrains' })
+
+export const viewport: Viewport = { themeColor: '#F3E9D2' }
 
 const SITE_URL = 'https://bene-tesla-dev.com.br'
 const TITLE = 'Benevanio Santos | Engenheiro de Software · Backend & Integrações'
@@ -35,15 +38,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" data-theme="dark" className={`${outfit.variable} ${publicSans.variable}`} suppressHydrationWarning>
-      <head>
-        <script dangerouslySetInnerHTML={{
-          __html: `(()=>{try{const t=localStorage.getItem('theme');const s=window.matchMedia?.('(prefers-color-scheme: dark)').matches;document.documentElement.setAttribute('data-theme',t||(s?'dark':'light'));}catch(e){document.documentElement.setAttribute('data-theme','dark');}})()`
-        }} />
-      </head>
+    <html lang="pt-BR" className={`${fraunces.variable} ${inter.variable} ${jetbrains.variable}`}>
       <body>
         <a href="#main" className="skip-link">Ir para o conteúdo principal</a>
-        <div className="topo-bg" aria-hidden="true" />
         {children}
       </body>
     </html>

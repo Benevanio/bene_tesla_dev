@@ -197,11 +197,55 @@ export const talks = [
 ]
 
 export const principles = [
-  { icon: 'layers', name: 'Domain-Driven Design', desc: 'Modelagem de domínio alinhada ao negócio e linguagem ubíqua.' },
-  { icon: 'zap', name: 'Event-Driven Architecture', desc: 'Integrações assíncronas para resiliência e desacoplamento.' },
-  { icon: 'code', name: 'Clean Code', desc: 'Código legível, testável e orientado à manutenção.' },
-  { icon: 'box', name: 'SOLID', desc: 'Design orientado a responsabilidade única e extensibilidade.' },
-  { icon: 'network', name: 'API-Led Connectivity', desc: 'Camadas Experience, Process e System para integrações corporativas.' },
+  { code: 'DDD', name: 'Domain-Driven Design', desc: 'Modelagem de domínio alinhada ao negócio e linguagem ubíqua.' },
+  { code: 'EDA', name: 'Event-Driven Architecture', desc: 'Integrações assíncronas para resiliência e desacoplamento.' },
+  { code: 'CLN', name: 'Clean Code', desc: 'Código legível, testável e orientado à manutenção.' },
+  { code: 'SLD', name: 'SOLID', desc: 'Design orientado a responsabilidade única e extensibilidade.' },
+  { code: 'API', name: 'API-Led Connectivity', desc: 'Camadas Experience, Process e System para integrações corporativas.' },
+]
+
+export const apiLedLayers = [
+  { name: 'EXPERIENCE API', sub: 'Web · Mobile · Desktop', color: 'var(--sertao)', nodes: ['React', 'React Native', 'Tauri'], link: 'HTTPS · REST' },
+  { name: 'PROCESS API', sub: 'Orquestração & regras', color: 'var(--terracota)', nodes: ['DataWeave', 'Mule 4', 'ActiveMQ'], link: 'JMS · async' },
+  { name: 'SYSTEM API', sub: 'Sistemas de registro', color: 'var(--mandacaru-light)', nodes: ['Redis', 'PostgreSQL', 'MongoDB'] },
+]
+
+export const route = [
+  { city: 'Pão de Açúcar, AL', coord: '-9.74, -37.43 · nascimento', short: 'nascimento' },
+  { city: 'Porto da Folha, SE', coord: '-9.91, -37.27 · formação', short: 'formação' },
+  { city: 'Nova Odessa, SP', coord: '-22.77, -47.29 · 2019', short: '2019' },
+  { city: 'Engenharia de Software', coord: '200 OK · hoje', short: 'hoje', end: true },
+]
+
+export const originChapters = [
+  {
+    num: 'I', cap: 'CAPÍTULO I · RAÍZES', place: 'Pão de Açúcar', state: 'ALAGOAS — AL', image: '/gravuras/cap-1.png',
+    alt: 'Xilogravura do Rio São Francisco em Pão de Açúcar, Alagoas',
+    desc: 'Local de nascimento. Onde tudo começou — no coração do Sertão nordestino, às margens do Rio São Francisco.',
+  },
+  {
+    num: 'II', cap: 'CAPÍTULO II · FORMAÇÃO', place: 'Porto da Folha', state: 'SERGIPE — SE', image: '/gravuras/cap-2.png',
+    alt: 'Xilogravura de Porto da Folha, Sergipe',
+    desc: 'Um novo capítulo. A cidade que fez parte da formação humana e alimentou a busca por algo maior.',
+  },
+  {
+    num: 'III', cap: 'CAPÍTULO III · NOVOS CAMINHOS', place: 'Nova Odessa', state: 'SÃO PAULO — SP · 2019', image: '/gravuras/cap-3.png',
+    alt: 'Xilogravura de Nova Odessa, interior de São Paulo',
+    desc: 'Em 2019, a mudança para o interior paulista: o início de um novo capítulo, de novas oportunidades e do desenvolvimento profissional.',
+  },
+  {
+    num: 'IV', cap: 'CAPÍTULO IV · DESTINO', place: 'Engenharia de Software', state: 'A TECNOLOGIA COMO DESTINO',
+    desc: 'A trajetória geográfica se tornou trajetória intelectual. O Nordeste moldou o engenheiro.',
+  },
+]
+
+export const stackGroups = [
+  { path: 'stack/integracao_apis/', title: 'Integração & APIs', tools: ['MuleSoft', 'DataWeave', 'API-Led Connectivity', 'ActiveMQ', 'GraphQL'] },
+  { path: 'stack/back_end/', title: 'Back-end', tools: ['Node.js', 'TypeScript', 'Java', 'Spring Boot', 'Express', 'NestJS'] },
+  { path: 'stack/front_mobile_desktop/', title: 'Front-end, Mobile & Desktop', tools: ['React', 'React Native', 'Tauri', 'Rust', 'Tailwind CSS', 'HTML5', 'CSS3'] },
+  { path: 'stack/dados/', title: 'Dados', tools: ['PostgreSQL', 'MongoDB', 'Redis', 'Knex.js', 'SQLite'] },
+  { path: 'stack/observabilidade_devops/', title: 'Observabilidade, DevOps & Sustentação', tools: ['Kibana', 'Elasticsearch', 'Logstash', 'Splunk', 'Dynatrace', 'ServiceNow', 'Docker', 'Kubernetes', 'Jenkins', 'Git'] },
+  { path: 'stack/qualidade_testes/', title: 'Qualidade & Testes', tools: ['Jest', 'JUnit', 'k6', 'Postman', 'SonarQube'] },
 ]
 
 // Currículos (PT-BR) — pasta única no Google Drive com as 6 trilhas.
