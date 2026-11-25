@@ -214,6 +214,7 @@ export const route = [
   { city: 'Pão de Açúcar, AL', coord: '-9.74, -37.43 · nascimento', short: 'nascimento' },
   { city: 'Porto da Folha, SE', coord: '-9.91, -37.27 · formação', short: 'formação' },
   { city: 'Nova Odessa, SP', coord: '-22.77, -47.29 · 2019', short: '2019' },
+  { city: 'Uberlândia, MG', coord: '-18.91, -48.28 · 2027', short: '2027' },
   { city: 'Engenharia de Software', coord: '200 OK · hoje', short: 'hoje', end: true },
 ]
 

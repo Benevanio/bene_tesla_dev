@@ -244,7 +244,7 @@ img { display: block; max-width: 100%; }
 .parada__linha { display: flex; align-items: center; gap: 8px; }
 .ponto { width: 8px; height: 8px; border-radius: 50%; background: var(--sertao); flex-shrink: 0; }
 .ponto--fim { background: var(--terracota); }
-.parada__cidade { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--paper); line-height: 1.2; }
+.parada__cidade { font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--paper); line-height: 1.2; white-space: nowrap; }
 .parada__coord { font-family: var(--font-mono); font-size: 11px; color: var(--paper-60); }
 .parada__curto { display: none; font-family: var(--font-mono); font-size: 10px; color: var(--paper-60); }
 .rota__seta { color: var(--sertao); flex-shrink: 0; }
@@ -474,6 +474,10 @@ img { display: block; max-width: 100%; }
   .gravura__interna { height: 540px; }
   .apiled { width: 480px; }
   .canais { width: 420px; }
+  .rota__inner { gap: 10px; }
+  .parada { gap: 0; }
+  .parada__cidade { font-size: 15px; }
+  .parada__coord { font-size: 10px; white-space: nowrap; }
 }
 
 @media (max-width: 1280px) and (min-width: 1101px) {
@@ -484,6 +488,7 @@ img { display: block; max-width: 100%; }
 @media (max-width: 1100px) {
   .nav-desk-wrap { display: none; }
   .menu-btn { display: inline-flex; }
+  .rota__label { display: none; }
 }
 
 @media (max-width: 1024px) {
@@ -499,7 +504,7 @@ img { display: block; max-width: 100%; }
   .gravura__interna { height: 520px; }
 
   .rota__inner { flex-direction: column; align-items: stretch; gap: 0; padding-block: 24px; }
-  .rota__label { margin-bottom: 4px; }
+  .rota__label { display: block; margin-bottom: 4px; }
   .rota__seta { display: none; }
   .parada__trilho { display: flex; flex-direction: column; align-items: center; width: 10px; padding-top: 16px; }
   .parada__trilho .ponto { width: 10px; height: 10px; }
