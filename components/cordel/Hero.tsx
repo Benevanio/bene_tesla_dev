@@ -53,6 +53,14 @@ export function Hero() {
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 540px"
+                className="gravura__img--dia"
+              />
+              <Image
+                src="/gravuras/hero-noite.png"
+                alt="Xilogravura noturna: céu estrelado sobre o sertão, mandacarus e o Rio São Francisco se transformando em código"
+                fill
+                sizes="(max-width: 1024px) 100vw, 540px"
+                className="gravura__img--noite"
               />
               <span className="anotacao anotacao--ink" aria-hidden="true">rio.flow() → api.led()</span>
               <span className="anotacao anotacao--sertao" aria-hidden="true">lat -9.74 · lon -37.43</span>

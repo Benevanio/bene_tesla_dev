@@ -48,12 +48,12 @@ export default function Home() {
         <Barrado bg="var(--white)" tall />
         <Arquitetura />
         <Stack />
-        <Barrado bg="var(--ink)" tall />
+        <Barrado bg="var(--ink)" tall deep />
         <Palestras />
         <Projetos />
       </main>
       <Contato />
-      <Barrado bg="var(--ink)" />
+      <Barrado bg="var(--ink)" deep />
       <CvController />
     </>
   )

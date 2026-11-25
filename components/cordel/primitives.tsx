@@ -1,16 +1,9 @@
 import type { CSSProperties, ReactNode } from 'react'
 
-const INK = '#242019'
-const PAPER = '#F3E9D2'
-
-const TEETH = encodeURIComponent(
-  `<svg xmlns='http://www.w3.org/2000/svg' width='36' height='14'><path d='M9 0L16.794 10.5H1.206Z' fill='${INK}'/><path d='M27 0L34.794 10.5H19.206Z' fill='${PAPER}'/></svg>`,
-)
-
-/** Faixa de "dentes" do cordel — ornamento barrado entre capítulos. */
-export function Barrado({ bg = 'transparent', tall = false }: { bg?: string; tall?: boolean }) {
-  const style: CSSProperties = { backgroundColor: bg, backgroundImage: `url("data:image/svg+xml,${TEETH}")` }
-  return <div className={`barrado${tall ? ' barrado--14' : ''}`} style={style} aria-hidden="true" />
+/** Faixa de "dentes" do cordel — ornamento barrado entre capítulos. Cores via CSS (tema claro/noite). */
+export function Barrado({ bg = 'transparent', tall = false, deep = false }: { bg?: string; tall?: boolean; deep?: boolean }) {
+  const style: CSSProperties = { backgroundColor: bg }
+  return <div className={`barrado${tall ? ' barrado--14' : ''}${deep ? ' barrado--profundo' : ''}`} style={style} aria-hidden="true" />
 }
 
 export function Losango({ className = '' }: { className?: string }) {

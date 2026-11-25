@@ -93,8 +93,24 @@ img { display: block; max-width: 100%; }
 }
 .losango--sm { width: 8px; height: 11px; background: var(--ink); }
 
-.barrado { width: 100%; height: 10px; overflow: hidden; background-repeat: repeat-x; background-position: left top; }
+.barrado { position: relative; width: 100%; height: 10px; overflow: hidden; }
 .barrado--14 { height: 14px; }
+.barrado::before, .barrado::after {
+  content: ''; position: absolute; inset: 0;
+  -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
+  -webkit-mask-position: left top; mask-position: left top;
+  -webkit-mask-size: 36px 14px; mask-size: 36px 14px;
+}
+.barrado::before {
+  background: var(--ink);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='14'%3E%3Cpath d='M9 0L16.794 10.5H1.206Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='14'%3E%3Cpath d='M9 0L16.794 10.5H1.206Z'/%3E%3C/svg%3E");
+}
+.barrado::after {
+  background: var(--paper);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='14'%3E%3Cpath d='M27 0L34.794 10.5H19.206Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='14'%3E%3Cpath d='M27 0L34.794 10.5H19.206Z'/%3E%3C/svg%3E");
+}
 
 .tag {
   display: inline-flex; align-items: center; padding: 5px 10px;
@@ -145,13 +161,14 @@ img { display: block; max-width: 100%; }
 /* ---------- Header ---------- */
 
 .site-header { position: sticky; top: 0; z-index: 100; background: var(--paper); transition: box-shadow .25s ease; }
-.site-header.is-scrolled { box-shadow: 0 6px 0 -4px rgba(36, 32, 25, .08); }
+.site-header.is-scrolled { box-shadow: 0 6px 0 -4px color-mix(in srgb, var(--ink) 8%, transparent); }
 .site-header__inner {
   display: flex; align-items: center; justify-content: space-between; gap: 32px;
   padding-block: 20px; border-bottom: 1.5px solid var(--ink);
   transition: padding .25s ease;
 }
 .site-header.is-scrolled .site-header__inner { padding-block: 12px; }
+.site-header__acoes { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .marca { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; white-space: nowrap; }
 .marca__mono {
   display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: var(--ink);
@@ -194,7 +211,7 @@ img { display: block; max-width: 100%; }
 .nav-mobile__lista li { animation: menu-in .35s ease both; animation-delay: calc(var(--i) * 35ms); }
 .nav-mobile__lista a {
   display: flex; align-items: baseline; gap: 14px; padding: 14px 0;
-  border-bottom: 1px solid rgba(36, 32, 25, .18); transition: padding-left .2s ease, color .2s ease;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 18%, transparent); transition: padding-left .2s ease, color .2s ease;
 }
 .nav-mobile__lista .nav-item__num { width: 40px; flex-shrink: 0; font-size: 12px; }
 .nav-mobile__label { font-family: var(--font-display); font-size: 28px; font-weight: 600; line-height: 1.15; }
@@ -226,6 +243,7 @@ img { display: block; max-width: 100%; }
 .gravura__moldura { padding: 8px; box-shadow: inset 0 0 0 2.5px var(--ink); }
 .gravura__interna { position: relative; height: 600px; overflow: hidden; box-shadow: inset 0 0 0 1px var(--ink); }
 .gravura__interna img { object-fit: cover; }
+.gravura__img--noite { display: none; }
 .anotacao { position: absolute; z-index: 1; padding: 4px 8px; font-family: var(--font-mono); font-size: 11px; line-height: 1.3; white-space: nowrap; }
 .anotacao--ink { background: var(--ink); color: var(--paper); left: 63.5%; top: 56.6%; }
 .anotacao--sertao { background: var(--sertao); color: var(--ink); left: 24px; bottom: 19px; }
@@ -463,6 +481,77 @@ img { display: block; max-width: 100%; }
 .cv-item__d { font-size: 13px; line-height: 1.45; color: var(--ink-soft); }
 
 /* ==========================================================================
+   Tema "Noite no Sertão" (modo escuro) — tokens do design pen.dev
+   modo=noite no documento; modo=noite-profunda nas faixas escuras
+   ========================================================================== */
+
+html[data-theme="noite"] {
+  color-scheme: dark;
+  --paper: #0C162D;
+  --paper-2: #111D3A;
+  --ink: #F3E9D2;
+  --ink-2: #101A36;
+  --ink-soft: #A9B0C6;
+  --wood: #C9A27E;
+  --terracota: #E2774C;
+  --sertao: #F2C14E;
+  --mandacaru: #8FA872;
+  --mandacaru-light: #B9CC98;
+  --white: #15234A;
+}
+
+/* noite-profunda: blocos "tinta" continuam escuros, com texto creme */
+html[data-theme="noite"] :is(
+  .marca__mono, .anotacao--ink, .rota, .capitular, .diagrama-iv, .cap-prof__periodo--atual,
+  .arquitetura, .stack, .indice, .contato, .barrado--profundo
+) {
+  --paper: #F3E9D2;
+  --paper-2: #E8D8B8;
+  --ink: #060B1C;
+  --ink-soft: #C3C7D6;
+  --white: #FFFDF7;
+}
+/* o nó "engenharia.software" volta ao modo noite dentro do diagrama */
+html[data-theme="noite"] .diagrama-iv__eng { --paper: #0C162D; }
+
+html[data-theme="noite"] .cv-overlay { background: rgba(6, 11, 28, .8); }
+html[data-theme="noite"] ::selection { color: var(--paper); }
+
+/* Gravuras dos capítulos: camada "difference" branca do design = inversão (creme #F3E9D2 → noite #0C162D) */
+html[data-theme="noite"] .moldura__img img { filter: invert(1); }
+
+/* Gravura do hero: versão noturna */
+html[data-theme="noite"] .gravura__img--dia { display: none; }
+html[data-theme="noite"] .gravura__img--noite { display: block; }
+
+/* Céu estrelado no hero, na rota e no contato */
+html[data-theme="noite"] :is(.hero, .rota, .contato) { position: relative; isolation: isolate; }
+html[data-theme="noite"] :is(.hero, .rota, .contato)::before {
+  content: ''; position: absolute; z-index: -1; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%);
+  background: url('/ceu-noite.svg') center top / 1440px auto no-repeat;
+  pointer-events: none;
+}
+
+/* Transição suave ao alternar o tema */
+html.tema-transicao, html.tema-transicao *, html.tema-transicao *::before, html.tema-transicao *::after {
+  transition: background-color .3s ease, color .3s ease, box-shadow .3s ease, border-color .3s ease !important;
+}
+
+/* ---------- Alternar Tema ---------- */
+
+.tema { display: inline-flex; align-items: center; gap: 2px; padding: 3px; flex-shrink: 0; box-shadow: inset 0 0 0 1.5px var(--ink); }
+.tema__opt {
+  width: 36px; height: 34px; display: flex; align-items: center; justify-content: center;
+  color: var(--ink-soft); transition: background-color .2s ease, color .2s ease;
+}
+.tema__opt:hover { color: var(--ink); }
+.tema__opt--sol { background: var(--ink); color: var(--paper); }
+.tema__opt--sol:hover { color: var(--paper); }
+html[data-theme="noite"] .tema__opt--sol { background: transparent; color: var(--ink-soft); }
+html[data-theme="noite"] .tema__opt--sol:hover { color: var(--ink); }
+html[data-theme="noite"] .tema__opt--lua { background: var(--sertao); color: var(--paper); }
+
+/* ==========================================================================
    Responsivo
    ========================================================================== */
 
@@ -483,6 +572,12 @@ img { display: block; max-width: 100%; }
 @media (max-width: 1280px) and (min-width: 1101px) {
   .nav-desk { gap: 20px; }
   .marca__sub { display: none; }
+}
+
+/* Com o Alternar Tema no header, a nav completa (com numerais) só cabe a partir de 1440px */
+@media (max-width: 1439px) and (min-width: 1101px) {
+  .site-header__inner { gap: 24px; }
+  .nav-desk .nav-item__num { display: none; }
 }
 
 @media (max-width: 1100px) {
@@ -545,7 +640,11 @@ img { display: block; max-width: 100%; }
 @media (max-width: 640px) {
   :root { --gutter: 20px; }
 
-  .site-header__inner { padding-block: 16px; }
+  .site-header__inner { gap: 12px; padding-block: 16px; }
+  .marca { gap: 10px; }
+  .marca__nome { font-size: 16px; }
+  .marca__sub-ext { display: none; }
+  .menu-btn { width: 42px; height: 42px; }
 
   .hero { padding-top: 28px; padding-bottom: 40px; }
   .hero__kicker { font-size: 10px; letter-spacing: 2px; gap: 10px; }

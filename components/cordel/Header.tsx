@@ -4,6 +4,7 @@ import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { personal } from '@/data/portfolio'
 import { Barrado } from './primitives'
+import { ThemeToggle } from './ThemeToggle'
 
 export const navLinks = [
   { href: '#sobre', num: 'I.', label: 'Sobre' },
@@ -71,7 +72,7 @@ export function Header() {
               <span className="marca__mono" aria-hidden="true">bs</span>
               <span className="marca__txt">
                 <span className="marca__nome">Benevanio Santos</span>
-                <span className="marca__sub">cordel digital · folheto nº 01</span>
+                <span className="marca__sub">cordel digital<span className="marca__sub-ext"> · folheto nº 01</span></span>
               </span>
             </a>
 
@@ -88,16 +89,19 @@ export function Header() {
               </ul>
             </nav>
 
-            <button
-              type="button"
-              className="menu-btn"
-              onClick={() => setOpen(o => !o)}
-              aria-label={open ? 'Fechar menu' : 'Abrir menu'}
-              aria-expanded={open}
-              aria-controls="menu-mobile"
-            >
-              {open ? <X size={20} /> : <Menu size={20} />}
-            </button>
+            <div className="site-header__acoes">
+              <ThemeToggle />
+              <button
+                type="button"
+                className="menu-btn"
+                onClick={() => setOpen(o => !o)}
+                aria-label={open ? 'Fechar menu' : 'Abrir menu'}
+                aria-expanded={open}
+                aria-controls="menu-mobile"
+              >
+                {open ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
           </div>
         </div>
 
