@@ -91,11 +91,11 @@ export function Origem() {
           secao="MINHA ORIGEM"
           id="origem-titulo"
           title="Uma trajetória moldada pelo Nordeste"
-          sub="A história em quatro capítulos — do Rio São Francisco ao código."
+          sub="A história em cinco capítulos — do Rio São Francisco ao código."
         />
       </AnimateIn>
 
-      <ol className="grid-4">
+      <ol className="grid-5">
         {originChapters.map((c, i) => {
           const last = i === originChapters.length - 1
           return (
@@ -112,7 +112,7 @@ export function Origem() {
                       <Image src={c.image} alt={c.alt ?? ''} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px" />
                     </div>
                   ) : (
-                    <DiagramaIV />
+                    <DiagramaV />
                   )}
                 </div>
 
@@ -131,12 +131,12 @@ export function Origem() {
   )
 }
 
-function DiagramaIV() {
+function DiagramaV() {
   return (
-    <div className="diagrama-iv" role="img" aria-label="Diagrama: AL, SE e SP convergem para engenharia.software, que retorna 200 OK">
-      <span className="diagrama-iv__coment">{'// capitulo_iv.ts'}</span>
+    <div className="diagrama-iv" role="img" aria-label="Diagrama: AL, SE, SP e MG convergem para engenharia.software, que retorna 200 OK">
+      <span className="diagrama-iv__coment">{'// capitulo_v.ts'}</span>
       <div className="diagrama-iv__raizes">
-        {['AL', 'SE', 'SP'].map(uf => (
+        {['AL', 'SE', 'SP', 'MG'].map(uf => (
           <div key={uf} className="diagrama-iv__no">
             <span className="diagrama-iv__box">{uf}</span>
             <span className="haste" />

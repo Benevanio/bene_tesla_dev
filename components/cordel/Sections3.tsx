@@ -168,7 +168,7 @@ export function Contato() {
           <span className="selo" aria-hidden="true">Fim</span>
           <div className="rodape__txt">
             <p className="rodape__c">© {new Date().getFullYear()} Benevanio Santos. Engenharia de software orientada a resultados.</p>
-            <p className="rodape__s">Cordel Digital — do sertão ao código · Pão de Açúcar → Porto da Folha → Nova Odessa</p>
+            <p className="rodape__s">Cordel Digital — do sertão ao código · Pão de Açúcar → Porto da Folha → Nova Odessa → Uberlândia</p>
           </div>
           <a href="#capa" className="link-sub">
             Voltar à capa

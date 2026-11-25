@@ -79,8 +79,8 @@ img { display: block; max-width: 100%; }
 /* ---------- Primitivas ---------- */
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.grid-3 > li, .grid-4 > li { display: flex; flex-direction: column; }
-.grid-3 > li > *, .grid-4 > li > * { flex: 1; }
+.grid-3 > li, .grid-5 > li { display: flex; flex-direction: column; }
+.grid-3 > li > *, .grid-5 > li > * { flex: 1; }
 
 .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gutter); }
 
@@ -285,7 +285,7 @@ img { display: block; max-width: 100%; }
 /* ---------- III — Origem ---------- */
 
 .origem { display: flex; flex-direction: column; gap: 64px; padding-block: 112px; }
-.grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }
+.grid-5 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px; }
 .capitulo { display: flex; flex-direction: column; gap: 20px; }
 .marco { display: flex; align-items: center; gap: 10px; }
 .marco__circ {
@@ -306,11 +306,11 @@ img { display: block; max-width: 100%; }
 
 .diagrama-iv { height: 220px; background: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .diagrama-iv__coment { font-family: var(--font-mono); font-size: 11px; color: var(--paper-50); margin-bottom: 14px; }
-.diagrama-iv__raizes { display: flex; gap: 10px; }
-.diagrama-iv__no { width: 72px; display: flex; flex-direction: column; align-items: center; }
+.diagrama-iv__raizes { display: flex; gap: 6px; }
+.diagrama-iv__no { width: 46px; display: flex; flex-direction: column; align-items: center; }
 .diagrama-iv__box { width: 100%; text-align: center; padding: 8px 0; box-shadow: inset 0 0 0 1.5px var(--sertao); font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--sertao); line-height: 1.2; }
 .haste { width: 1.5px; height: 18px; background: var(--sertao); }
-.diagrama-iv__bus { width: 164px; height: 1.5px; background: var(--sertao); }
+.diagrama-iv__bus { width: 156px; height: 1.5px; background: var(--sertao); }
 .diagrama-iv__eng { display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: var(--terracota); color: var(--paper); font-family: var(--font-mono); font-size: 13px; font-weight: 600; line-height: 1.2; }
 .diagrama-iv__ret { margin-top: 12px; font-family: var(--font-mono); font-size: 11px; color: var(--sertao); }
 
@@ -514,7 +514,7 @@ img { display: block; max-width: 100%; }
   .sobre__col-texto { padding-top: 0; }
 
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; }
+  .grid-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 48px; }
 
   .arquitetura__corpo { flex-direction: column; gap: 40px; }
   .apiled { width: 100%; }
@@ -583,7 +583,7 @@ img { display: block; max-width: 100%; }
   .indicador__desc { font-size: 12px; line-height: 17px; }
 
   .origem { gap: 40px; padding-block: 64px; }
-  .grid-4 { grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
+  .grid-5 { grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
   .capitulo { gap: 14px; }
   .moldura { padding: 5px; }
   .capitulo__lugar { font-size: 26px; }

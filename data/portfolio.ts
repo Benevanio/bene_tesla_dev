@@ -234,7 +234,12 @@ export const originChapters = [
     desc: 'Em 2019, a mudança para o interior paulista: o início de um novo capítulo, de novas oportunidades e do desenvolvimento profissional.',
   },
   {
-    num: 'IV', cap: 'CAPÍTULO IV · DESTINO', place: 'Engenharia de Software', state: 'A TECNOLOGIA COMO DESTINO',
+    num: 'IV', cap: 'CAPÍTULO IV · NOVO LAR', place: 'Uberlândia', state: 'MINAS GERAIS — MG · 2027', image: '/gravuras/cap-4.png',
+    alt: 'Xilogravura de Uberlândia, no Triângulo Mineiro',
+    desc: 'A conquista da casa própria. A partir de 2027, o Triângulo Mineiro passa a ser o novo lar — e o ponto de partida da próxima fase.',
+  },
+  {
+    num: 'V', cap: 'CAPÍTULO V · DESTINO', place: 'Engenharia de Software', state: 'A TECNOLOGIA COMO DESTINO',
     desc: 'A trajetória geográfica se tornou trajetória intelectual. O Nordeste moldou o engenheiro.',
   },
 ]
